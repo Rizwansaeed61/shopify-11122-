@@ -24,7 +24,7 @@
             {{ section.settings.title | default: 'OWN THE <span style="color: var(--color-primary);">NIGHT</span>' }}
           </h2>
           <p style="font-size: 16px; color: var(--color-text-muted); margin-top: 16px; line-height: 1.6;">
-            {{ section.settings.description | default: 'Dominate the darkness with industrial-grade precision. Our LED systems are engineered for the bold who refuse to let the night dictate their journey.' }}
+            {{ section.settings.description | default: 'Dominate the darkness with industrial-grade precision. Our LED systems are engineered for the bold who refuse to let the sun dictate their journey.' }}
           </p>
         </div>
 
@@ -95,9 +95,10 @@
       "default": "VIEW SPECIFICATIONS"
     },
     {
-      "type": "url",
+      "type": "text",
       "id": "button_url",
-      "label": "Button Link"
+      "label": "Button Link",
+      "default": "#specs"
     }
   ],
   "blocks": [
