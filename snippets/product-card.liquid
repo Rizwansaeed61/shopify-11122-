@@ -8,6 +8,7 @@
   assign card_title = title | default: product.title | default: 'Electro NightEye LED H4'
   assign card_price = price | default: product.price | default: 8900
   assign card_lumens = lumens | default: '15,000 LM'
+  assign card_url = product.url | default: url | default: '/products/electro-nighteye-led'
   
   if image_url != blank
     assign card_img = image_url
@@ -18,14 +19,16 @@
   endif
 -%}
 
-<div class="product-card">
+<div class="product-card" data-product-card>
   <div class="product-card__image-wrapper">
     <div style="position: absolute; top: 12px; left: 12px; z-index: 2; display: flex; gap: 6px;">
-      <span style="background: var(--color-primary); color: #12110c; font-size: 10px; font-weight: 900; padding: 4px 8px; border-radius: var(--radius-full); text-transform: uppercase;">
+      <span style="background: var(--color-primary); color: #12110c; font-size: 10px; font-weight: 900; padding: 4px 8px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 2px 8px rgba(0,0,0,0.5);">
         {{ card_lumens }}
       </span>
     </div>
-    <img src="{{ card_img }}" alt="{{ card_title }}" class="product-card__image" width="300" height="300" loading="lazy">
+    <a href="{{ card_url }}" class="product-card__image-link" style="display: block; width: 100%; height: 100%;" aria-label="{{ card_title | escape }}">
+      <img src="{{ card_img }}" alt="{{ card_title | escape }}" class="product-card__image" width="300" height="300" loading="lazy">
+    </a>
   </div>
 
   <div style="display: flex; flex-direction: column; flex: 1; justify-content: space-between;">
@@ -34,22 +37,31 @@
         {% for i in (1..5) %}
           <span class="material-symbols-outlined" style="font-size: 14px; color: var(--color-primary); font-variation-settings: 'FILL' 1;">star</span>
         {% endfor %}
-        <span style="font-size: 11px; color: var(--color-text-muted); margin-left: 4px;">(4.9)</span>
+        <span style="font-size: 11px; color: var(--color-text-muted); margin-left: 4px; font-weight: 700;">(4.9)</span>
       </div>
       <h3 style="font-size: 16px; font-weight: 800; text-transform: uppercase; line-height: 1.3; margin-bottom: 8px;">
-        <a href="{{ product.url | default: '/products/electro-nighteye-led' }}">{{ card_title }}</a>
+        <a href="{{ card_url }}" style="color: inherit; text-decoration: none; transition: color 0.2s ease;">{{ card_title }}</a>
       </h3>
-      <p style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 12px;">
-        Aircraft Grade 6063 Aluminum • 6500K Cool White
+      <p style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 12px; line-height: 1.5;">
+        Aircraft Grade 6063 Aluminum • 6500K Cool White • Canbus Decoded
       </p>
     </div>
 
-    <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--color-border);">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--color-border); margin-top: auto;">
       <span style="font-size: 18px; font-weight: 900; color: var(--color-primary);">
         {{ card_price | money }}
       </span>
-      <button type="button" data-open-cart class="btn-primary" style="padding: 8px 16px; font-size: 11px;">
-        QUICK BUY
+      <button 
+        type="button" 
+        data-open-cart 
+        data-item-title="{{ card_title | escape }}"
+        data-item-price="{{ card_price | money }}"
+        data-item-image="{{ card_img }}"
+        class="btn-primary" 
+        style="padding: 8px 16px; font-size: 11px; font-weight: 800; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 6px;"
+      >
+        <span class="material-symbols-outlined" style="font-size: 14px;">shopping_bag</span>
+        <span>QUICK BUY</span>
       </button>
     </div>
   </div>

@@ -1,31 +1,129 @@
-<section class="collection-page" style="padding: 80px 0; background: #12110c;">
+<section class="collection-page" style="padding: 60px 0 100px; background: #12110c;">
   <div class="page-width">
     
-    <div style="margin-bottom: 48px; border-bottom: 1px solid var(--color-border); padding-bottom: 24px;">
-      <h1 style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;">
-        {{ collection.title | default: 'ALL AUTOMOTIVE LED PRODUCTS' }}
+    <!-- Breadcrumb -->
+    <nav style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--color-text-muted); margin-bottom: 24px;">
+      <a href="{{ routes.root_url }}" style="color: inherit; text-decoration: none;">HOME</a>
+      <span>/</span>
+      <a href="{{ routes.collections_url }}" style="color: inherit; text-decoration: none;">COLLECTIONS</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 700;">{{ collection.title | default: 'ALL LED BULBS' | upcase }}</span>
+    </nav>
+
+    <!-- Collection Header -->
+    <div style="margin-bottom: 40px; border-bottom: 1px solid var(--color-border); padding-bottom: 32px;">
+      <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 8px;">
+        MILITARY-SPEC OPTICS & CONVERSION KITS
+      </span>
+      <h1 style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1;">
+        {{ collection.title | default: 'ALL AUTOMOTIVE <span style="color: var(--color-primary);">LED BULBS</span>' }}
       </h1>
-      {%- if collection.description != blank -%}
-        <p style="font-size: 16px; color: var(--color-text-muted); margin-top: 12px; max-width: 800px;">
-          {{ collection.description }}
-        </p>
-      {%- endif -%}
+      <p style="font-size: 15px; color: var(--color-text-muted); margin-top: 12px; max-width: 800px; line-height: 1.6;">
+        {{ collection.description | default: 'Upgrade factory dim halogens with industrial-grade LED conversion kits. Precision-engineered for 99.9% vehicle fitment with integrated Canbus error-free decoders, IP68 waterproofing, and 15,000 lumens piercing brightness.' }}
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
+        <button type="button" class="btn-primary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          ALL BULBS
+        </button>
+        <button type="button" class="btn-secondary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          H4 DUAL BEAM
+        </button>
+        <button type="button" class="btn-secondary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          H7 HIGH/LOW
+        </button>
+        <button type="button" class="btn-secondary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          H11 FOG & LOW
+        </button>
+        <button type="button" class="btn-secondary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          HB3 / 9005
+        </button>
+        <button type="button" class="btn-secondary" style="padding: 8px 18px; font-size: 12px; font-weight: 800; border-radius: var(--radius-full);">
+          HB4 / 9006
+        </button>
+      </div>
+    </div>
+
+    <!-- Toolbar: Results count & Sort -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; font-size: 13px;">
+      <span style="color: var(--color-text-muted); font-weight: 700;">
+        {% if collection.products.size > 0 %}
+          SHOWING {{ collection.products.size }} INDUSTRIAL GRADE KITS
+        {% else %}
+          SHOWING 6 INDUSTRIAL GRADE KITS
+        {% endif %}
+      </span>
+
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <label for="SortBySelect" style="color: var(--color-text-muted); font-weight: 700; text-transform: uppercase; font-size: 11px;">SORT BY:</label>
+        <select id="SortBySelect" style="background: var(--color-surface); border: 1px solid var(--color-border); color: #fff; border-radius: var(--radius-sm); padding: 8px 14px; font-size: 12px; font-weight: 700; outline: none;">
+          <option value="manual">Featured</option>
+          <option value="best-selling" selected>Best Selling</option>
+          <option value="price-ascending">Price: Low to High</option>
+          <option value="price-descending">Price: High to Low</option>
+          <option value="rating">Highest Rated</option>
+        </select>
+      </div>
     </div>
 
     <!-- Product Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-bottom: 64px;">
       {%- if collection.products.size > 0 -%}
         {%- for product in collection.products -%}
           {% render 'product-card', product: product %}
         {%- endfor -%}
       {%- else -%}
         {% render 'product-card', title: 'Electro NightEye LED H4 (Dual Beam)', price: 8900, lumens: '15,000 LM' %}
-        {% render 'product-card', title: 'Electro NightEye LED H7 (Low/High)', price: 8900, lumens: '15,000 LM' %}
-        {% render 'product-card', title: 'Electro NightEye LED HB3 / 9005', price: 9500, lumens: '16,000 LM' %}
-        {% render 'product-card', title: 'Electro NightEye LED H11 (Fog/Low)', price: 8900, lumens: '15,000 LM' %}
-        {% render 'product-card', title: 'Electro NightEye LED HB4 / 9006', price: 8900, lumens: '15,000 LM' %}
-        {% render 'product-card', title: 'Electro NightEye LED H1 (High Beam)', price: 8500, lumens: '14,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H7 (Low/High Beam)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED HB3 / 9005 (High Beam)', price: 9500, lumens: '16,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H11 (Fog / Low Beam)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED HB4 / 9006 (Fog & Low)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H1 (Compact High Beam)', price: 8500, lumens: '14,000 LM' %}
       {%- endif -%}
+    </div>
+
+    <!-- Value Proposition Strip -->
+    <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 36px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">verified_user</span>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 800; text-transform: uppercase; color: #fff;">2-Year Warranty</h4>
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 2px;">Direct full-unit replacement guarantee</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">local_shipping</span>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 800; text-transform: uppercase; color: #fff;">Free Express Shipping</h4>
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 2px;">Tracked priority courier on orders over $75</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">build_circle</span>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 800; text-transform: uppercase; color: #fff;">100% Fitment Fit</h4>
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 2px;">Plug & play into factory socket housings</p>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 48px; height: 48px; border-radius: 10px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">support_agent</span>
+        </div>
+        <div>
+          <h4 style="font-size: 14px; font-weight: 800; text-transform: uppercase; color: #fff;">24/7 Tech Advice</h4>
+          <p style="font-size: 12px; color: var(--color-text-muted); margin-top: 2px;">Automotive lighting specialist help</p>
+        </div>
+      </div>
     </div>
 
   </div>

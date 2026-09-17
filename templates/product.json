@@ -202,43 +202,14 @@
         "subtitle": "See how Electro NightEye LED outperforms stock factory halogens and generic budget LEDs across every critical safety metric."
       }
     },
-    "testimonials": {
-      "type": "testimonials",
-      "blocks": {
-        "t1": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Unbelievable difference on unlit rural highways. The beam cutoff is razor sharp so nobody flashes their lights at me, yet the road ahead is as clear as daytime.",
-            "author": "Marcus Thorne",
-            "vehicle": "Ford F-150 (H11 Low Beam)"
-          }
-        },
-        "t2": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "Direct 5-minute plug and play installation on my Civic. Zero error codes on the dashboard and completely waterproof during torrential monsoon downpours.",
-            "author": "Rahul Mehta",
-            "vehicle": "Honda Civic (H7)"
-          }
-        },
-        "t3": {
-          "type": "testimonial",
-          "settings": {
-            "quote": "The 6500K cool white light penetrates through dense fog without yellowing or overheating. By far the highest quality LED upgrade I've ever installed.",
-            "author": "David Vance",
-            "vehicle": "Toyota 4Runner (H4 Dual Beam)"
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3"
-      ],
+    "product_reviews": {
+      "type": "product-reviews",
       "settings": {
-        "eyebrow": "VERIFIED HIGHWAY REVIEWS",
-        "title": "WHAT DRIVERS <span style='color: #ffd900;'>SAY</span>",
-        "subtitle": "Real feedback from over 25,000+ drivers who trust Electro NightEye for unmatched nighttime road safety."
+        "eyebrow": "VERIFIED OWNER EXPERIENCES",
+        "title": "DRIVER REVIEWS & <span style='color: #ffd900;'>FEEDBACK</span>",
+        "subtitle": "Real road tests and highway performance feedback from over 25,000+ verified motorists worldwide.",
+        "rating_score": "4.9",
+        "review_count": "348"
       }
     },
     "faq": {
@@ -293,7 +264,7 @@
     "marquee",
     "specs_section",
     "comparison",
-    "testimonials",
+    "product_reviews",
     "faq",
     "cta_banner"
   ]

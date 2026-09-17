@@ -1,40 +1,109 @@
 {%- comment -%}
-  Renders product media gallery with thumbnails
+  Renders product media gallery with interactive thumbnails
   Usage:
   {% render 'product-media-gallery', product: product %}
 {%- endcomment -%}
 
+{%- liquid
+  assign fallback_img_1 = 'https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N'
+  assign fallback_img_2 = 'https://lh3.googleusercontent.com/aida-public/AB6AXuBsMqNCUW14JK_hPLO34QcGH9uMCDg3e_V5i2eOL_JUUDJMGcbagFLMx650pu30TsvyWocJV8hB_kyGMtF5IvUoMaJrFIncu9rgV4Bzk4pIFRdlptD6ZUCFfIOZszwmsj-99opyV0XR7wcxJaLPSU4YcIFa113LrmMwCdRRLYUFbpPSc8YVUfavb82yiQD2YM5mBWiwBGsjqCaOz4fxOYbL-7F5S6hYA2tsTWdmdaTTWxnx_9MYLAI_0KWQL9IiLjveRTBmWyxq45Fo'
+  assign fallback_img_3 = 'https://lh3.googleusercontent.com/aida/AEtjO1Xe9gAliM294P5NLif4p4sVsxYLXYIWMaCQGBEFplGZkHWDNptyAal10xlyeLTDsTWrXwlNlWNEg3uTt8nzUjN8fiPqSQ1NgBFVZ8viPIcCCfvZWn7RhGEGUYOFKMl2gGmcgbb0n9LYBmNUzbKHmYBI0iaGWDZtdmqrqGbv9aPMuA7vAp2A1_NQ1L9RpFx_vA4M844wgp3tTQiqAmdEYO_iXNk6KkFVddgAZpXooNjbduJZCE15I5yn24I0'
+
+  if product.featured_image != blank
+    assign main_image_url = product.featured_image | image_url: width: 1000
+    assign main_image_alt = product.featured_image.alt | default: product.title
+  else
+    assign main_image_url = fallback_img_1
+    assign main_image_alt = 'Electro NightEye LED Automotive Lighting'
+  endif
+-%}
+
 <div class="product-gallery">
-  <div class="product-gallery__main relative">
+  <div class="product-gallery__main relative" style="position: relative; overflow: hidden; border-radius: var(--radius-md); background: var(--color-surface); border: 1px solid var(--color-border); aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+    
+    <!-- Floating Badges -->
     <div style="position: absolute; top: 16px; left: 16px; z-index: 2; display: flex; flex-direction: column; gap: 8px;">
-      <span style="background: var(--color-primary); color: #12110c; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase;">
-        PRO SERIES
+      <span style="background: var(--color-primary); color: #12110c; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 12px rgba(0,0,0,0.4);">
+        PRO GRADE
       </span>
-      <span style="background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2);">
+      <span style="background: rgba(18, 17, 12, 0.85); backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid var(--color-border); letter-spacing: 0.05em;">
         15,000 LUMENS
       </span>
     </div>
 
-    {%- if product.featured_image != blank -%}
-      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.title }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: contain;">
-    {%- else -%}
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Electro NightEye LED" width="600" height="600" style="width: 100%; height: 100%; object-fit: contain;">
-    {%- endif -%}
+    <!-- Zoom Hint Icon -->
+    <div style="position: absolute; bottom: 16px; right: 16px; z-index: 2; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); border-radius: var(--radius-full); width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.15);">
+      <span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-primary);">zoom_in</span>
+    </div>
+
+    <img 
+      id="ProductMainImage"
+      src="{{ main_image_url }}" 
+      alt="{{ main_image_alt | escape }}" 
+      width="600" 
+      height="600" 
+      style="width: 100%; height: 100%; object-fit: contain; padding: 24px; transition: opacity 0.3s ease, transform 0.4s ease;"
+    >
   </div>
 
-  <div class="product-gallery__thumbs">
-    <div class="product-gallery__thumb active" data-image-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" width="80" height="80" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <div class="product-gallery__thumb" data-image-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMqNCUW14JK_hPLO34QcGH9uMCDg3e_V5i2eOL_JUUDJMGcbagFLMx650pu30TsvyWocJV8hB_kyGMtF5IvUoMaJrFIncu9rgV4Bzk4pIFRdlptD6ZUCFfIOZszwmsj-99opyV0XR7wcxJaLPSU4YcIFa113LrmMwCdRRLYUFbpPSc8YVUfavb82yiQD2YM5mBWiwBGsjqCaOz4fxOYbL-7F5S6hYA2tsTWdmdaTTWxnx_9MYLAI_0KWQL9IiLjveRTBmWyxq45Fo">
-      <div style="width: 100%; height: 100%; background: #23200f; display: flex; align-items: center; justify-content: center;">
-        <span class="material-symbols-outlined text-primary" style="color: var(--color-primary);">wb_sunny</span>
-      </div>
-    </div>
-    <div class="product-gallery__thumb" data-image-src="https://lh3.googleusercontent.com/aida/AEtjO1Xe9gAliM294P5NLif4p4sVsxYLXYIWMaCQGBEFplGZkHWDNptyAal10xlyeLTDsTWrXwlNlWNEg3uTt8nzUjN8fiPqSQ1NgBFVZ8viPIcCCfvZWn7RhGEGUYOFKMl2gGmcgbb0n9LYBmNUzbKHmYBI0iaGWDZtdmqrqGbv9aPMuA7vAp2A1_NQ1L9RpFx_vA4M844wgp3tTQiqAmdEYO_iXNk6KkFVddgAZpXooNjbduJZCE15I5yn24I0">
-      <div style="width: 100%; height: 100%; background: #1a1912; display: flex; align-items: center; justify-content: center;">
-        <span class="material-symbols-outlined text-primary" style="color: var(--color-primary);">water_drop</span>
-      </div>
-    </div>
+  <!-- Thumbnails -->
+  <div class="product-gallery__thumbs" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px;">
+    {%- if product.media.size > 1 -%}
+      {%- for media in product.media -%}
+        <button 
+          type="button"
+          class="product-gallery__thumb {% if forloop.first %}active{% endif %}" 
+          data-image-src="{{ media | image_url: width: 1000 }}"
+          aria-label="View product image {{ forloop.index }}"
+          style="cursor: pointer; background: var(--color-surface); border: 2px solid {% if forloop.first %}var(--color-primary){% else %}var(--color-border){% endif %}; border-radius: var(--radius-sm); padding: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: all 0.2s ease;"
+        >
+          <img src="{{ media | image_url: width: 140 }}" alt="{{ media.alt | default: product.title | escape }}" width="70" height="70" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;" loading="lazy">
+        </button>
+      {%- endfor -%}
+    {%- else -%}
+      <!-- Interactive Fallback Demo Photos -->
+      <button 
+        type="button"
+        class="product-gallery__thumb active" 
+        data-image-src="{{ fallback_img_1 }}"
+        aria-label="Bulb Architecture View"
+        style="cursor: pointer; background: var(--color-surface); border: 2px solid var(--color-primary); border-radius: var(--radius-sm); padding: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: all 0.2s ease;"
+      >
+        <img src="{{ fallback_img_1 }}" alt="Electro NightEye LED Front Angle" width="70" height="70" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;" loading="lazy">
+      </button>
+
+      <button 
+        type="button"
+        class="product-gallery__thumb" 
+        data-image-src="{{ fallback_img_2 }}"
+        aria-label="High Output Beam View"
+        style="cursor: pointer; background: var(--color-surface); border: 2px solid var(--color-border); border-radius: var(--radius-sm); padding: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: all 0.2s ease;"
+      >
+        <img src="{{ fallback_img_2 }}" alt="Electro NightEye Beam Road Projection" width="70" height="70" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;" loading="lazy">
+      </button>
+
+      <button 
+        type="button"
+        class="product-gallery__thumb" 
+        data-image-src="{{ fallback_img_3 }}"
+        aria-label="IP68 Submersible Waterproof View"
+        style="cursor: pointer; background: var(--color-surface); border: 2px solid var(--color-border); border-radius: var(--radius-sm); padding: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: all 0.2s ease;"
+      >
+        <img src="{{ fallback_img_3 }}" alt="Electro NightEye Weather Sealing" width="70" height="70" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;" loading="lazy">
+      </button>
+
+      <button 
+        type="button"
+        class="product-gallery__thumb" 
+        data-image-src="{{ fallback_img_1 }}"
+        aria-label="Aircraft Aluminum Detail"
+        style="cursor: pointer; background: var(--color-surface); border: 2px solid var(--color-border); border-radius: var(--radius-sm); padding: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; transition: all 0.2s ease;"
+      >
+        <div style="width: 100%; height: 100%; background: var(--color-surface-elevated); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border-radius: 4px;">
+          <span class="material-symbols-outlined" style="font-size: 20px; color: var(--color-primary);">heat_pump</span>
+          <span style="font-size: 9px; font-weight: 800; color: var(--color-text-muted); text-transform: uppercase;">COOLING</span>
+        </div>
+      </button>
+    {%- endif -%}
   </div>
 </div>

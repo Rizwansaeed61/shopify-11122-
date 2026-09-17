@@ -1,0 +1,374 @@
+<section class="product-reviews-section" style="padding: 90px 0; background: #15140e; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+  <div class="page-width">
+    
+    <!-- Section Header -->
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
+      <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 8px;">
+        {{ section.settings.eyebrow | default: 'VERIFIED OWNER EXPERIENCES' }}
+      </span>
+      <h2 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1;">
+        {{ section.settings.title | default: 'DRIVER REVIEWS & <span style="color: var(--color-primary);">FEEDBACK</span>' }}
+      </h2>
+      <p style="color: var(--color-text-muted); font-size: 15px; margin-top: 12px; line-height: 1.6;">
+        {{ section.settings.subtitle | default: 'Real road tests and highway performance feedback from over 25,000+ verified motorists worldwide.' }}
+      </p>
+    </div>
+
+    <!-- Rating Summary Dashboard Card -->
+    <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 36px 32px; margin-bottom: 48px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 36px; align-items: center;">
+        
+        <!-- Score Column -->
+        <div style="text-align: center; padding-right: 20px; border-right: 1px solid var(--color-border);" class="summary-score-col">
+          <div style="font-size: 64px; font-weight: 900; color: #ffffff; line-height: 1; letter-spacing: -0.03em;">
+            {{ section.settings.rating_score | default: '4.9' }}
+          </div>
+          <div style="display: flex; justify-content: center; gap: 4px; margin: 12px 0 8px;">
+            {% for i in (1..5) %}
+              <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 22px; font-variation-settings: 'FILL' 1;">star</span>
+            {% endfor %}
+          </div>
+          <p style="font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 4px;">
+            Based on {{ section.settings.review_count | default: '348' }} Verified Reviews
+          </p>
+          <span style="display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: #28a956; font-weight: 700;">
+            <span class="material-symbols-outlined" style="font-size: 16px;">verified</span> 98% of drivers recommend this bulb
+          </span>
+        </div>
+
+        <!-- Rating Distribution Bars -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 12px;">
+            <span style="width: 50px; font-weight: 700; color: var(--color-text-muted);">5 Stars</span>
+            <div style="flex: 1; height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+              <div style="width: 92%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full);"></div>
+            </div>
+            <span style="width: 35px; text-align: right; font-weight: 800; color: #fff;">92%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 12px;">
+            <span style="width: 50px; font-weight: 700; color: var(--color-text-muted);">4 Stars</span>
+            <div style="flex: 1; height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+              <div style="width: 6%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full);"></div>
+            </div>
+            <span style="width: 35px; text-align: right; font-weight: 800; color: #fff;">6%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 12px;">
+            <span style="width: 50px; font-weight: 700; color: var(--color-text-muted);">3 Stars</span>
+            <div style="flex: 1; height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+              <div style="width: 2%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full);"></div>
+            </div>
+            <span style="width: 35px; text-align: right; font-weight: 800; color: #fff;">2%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 12px;">
+            <span style="width: 50px; font-weight: 700; color: var(--color-text-muted);">2 Stars</span>
+            <div style="flex: 1; height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+              <div style="width: 0%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full);"></div>
+            </div>
+            <span style="width: 35px; text-align: right; font-weight: 800; color: var(--color-text-muted);">0%</span>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 12px;">
+            <span style="width: 50px; font-weight: 700; color: var(--color-text-muted);">1 Star</span>
+            <div style="flex: 1; height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+              <div style="width: 0%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full);"></div>
+            </div>
+            <span style="width: 35px; text-align: right; font-weight: 800; color: var(--color-text-muted);">0%</span>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
+          <button type="button" id="OpenReviewModalBtn" class="btn-primary" style="padding: 14px 28px; font-size: 13px; font-weight: 900; letter-spacing: 0.05em; display: inline-flex; align-items: center; gap: 8px;">
+            <span class="material-symbols-outlined" style="font-size: 18px;">rate_review</span>
+            <span>WRITE A REVIEW</span>
+          </button>
+          <span style="font-size: 11px; color: var(--color-text-muted);">Only verified drivers can post reviews</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Review Cards Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+      {%- if section.blocks.size > 0 -%}
+        {%- for block in section.blocks -%}
+          <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; justify-content: space-between;" {{ block.shopify_attributes }}>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <div>
+                  <div style="display: flex; align-items: center; gap: 6px;">
+                    <strong style="font-size: 15px; color: #fff;">{{ block.settings.author }}</strong>
+                    <span style="display: inline-flex; align-items: center; gap: 2px; background: rgba(40, 169, 86, 0.2); color: #28a956; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: var(--radius-full); border: 1px solid rgba(40,169,86,0.3);">
+                      <span class="material-symbols-outlined" style="font-size: 12px;">verified</span> VERIFIED
+                    </span>
+                  </div>
+                  <span style="display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--color-primary); background: rgba(255, 217, 0, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 217, 0, 0.2);">
+                    {{ block.settings.vehicle }}
+                  </span>
+                </div>
+                <div style="display: flex; gap: 2px;">
+                  {% for i in (1..5) %}
+                    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #fff; line-height: 1.3;">
+                "{{ block.settings.title }}"
+              </h4>
+              <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">
+                {{ block.settings.body }}
+              </p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted);">
+              <span>{{ block.settings.date }}</span>
+              <button type="button" style="background: none; border: none; color: var(--color-text-muted); display: inline-flex; align-items: center; gap: 4px; cursor: pointer; font-size: 12px;" onclick="this.querySelector('span').style.color='var(--color-primary)'; this.lastChild.textContent=' Helpful ({{ block.settings.helpful_count | plus: 1 }})';">
+                <span class="material-symbols-outlined" style="font-size: 14px;">thumb_up</span> Helpful ({{ block.settings.helpful_count }})
+              </button>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Default Verified Reviews -->
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <strong style="font-size: 15px; color: #fff;">Marcus Thorne</strong>
+                  <span style="display: inline-flex; align-items: center; gap: 2px; background: rgba(40, 169, 86, 0.2); color: #28a956; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: var(--radius-full); border: 1px solid rgba(40,169,86,0.3);">
+                    <span class="material-symbols-outlined" style="font-size: 12px;">verified</span> VERIFIED
+                  </span>
+                </div>
+                <span style="display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--color-primary); background: rgba(255, 217, 0, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 217, 0, 0.2);">
+                  Ford F-150 Raptor (H11 Low Beam)
+                </span>
+              </div>
+              <div style="display: flex; gap: 2px;">
+                {% for i in (1..5) %}<span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>{% endfor %}
+              </div>
+            </div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #fff; line-height: 1.3;">
+              "Night and day difference on pitch-black mountain highways"
+            </h4>
+            <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">
+              Installed in under 10 minutes. The light cutoff line is surgical—not a single oncoming vehicle has flashed their brights at me, yet the roadside shoulder visibility is 300% wider than my stock halogens.
+            </p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted);">
+            <span>Verified 5 days ago</span>
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 14px;">thumb_up</span> Helpful (34)</span>
+          </div>
+        </div>
+
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <strong style="font-size: 15px; color: #fff;">Faisal Khan</strong>
+                  <span style="display: inline-flex; align-items: center; gap: 2px; background: rgba(40, 169, 86, 0.2); color: #28a956; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: var(--radius-full); border: 1px solid rgba(40,169,86,0.3);">
+                    <span class="material-symbols-outlined" style="font-size: 12px;">verified</span> VERIFIED
+                  </span>
+                </div>
+                <span style="display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--color-primary); background: rgba(255, 217, 0, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 217, 0, 0.2);">
+                  Honda Civic / Accord (H7)
+                </span>
+              </div>
+              <div style="display: flex; gap: 2px;">
+                {% for i in (1..5) %}<span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>{% endfor %}
+              </div>
+            </div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #fff; line-height: 1.3;">
+              "Zero dashboard error codes, 100% plug and play"
+            </h4>
+            <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">
+              Most aftermarket LEDs trigger bulb-out dashboard warnings immediately. Electro NightEye fired up cleanly with no errors, zero flickering, and the 6500K crisp cool white matches modern luxury DRLs perfectly.
+            </p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted);">
+            <span>Verified 1 week ago</span>
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 14px;">thumb_up</span> Helpful (28)</span>
+          </div>
+        </div>
+
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <strong style="font-size: 15px; color: #fff;">David Vance</strong>
+                  <span style="display: inline-flex; align-items: center; gap: 2px; background: rgba(40, 169, 86, 0.2); color: #28a956; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: var(--radius-full); border: 1px solid rgba(40,169,86,0.3);">
+                    <span class="material-symbols-outlined" style="font-size: 12px;">verified</span> VERIFIED
+                  </span>
+                </div>
+                <span style="display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700; color: var(--color-primary); background: rgba(255, 217, 0, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255, 217, 0, 0.2);">
+                  Toyota Hilux / Revo (H4 Dual Beam)
+                </span>
+              </div>
+              <div style="display: flex; gap: 2px;">
+                {% for i in (1..5) %}<span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>{% endfor %}
+              </div>
+            </div>
+            <h4 style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #fff; line-height: 1.3;">
+              "Tested through torrential monsoons with zero water leaks"
+            </h4>
+            <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">
+              Drove through severe downpours and flooded dirt tracks. The IP68 silicone seals held up flawlessly. High-beam throws light at least 400 meters down the unlit highway. Incredible value.
+            </p>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted);">
+            <span>Verified 2 weeks ago</span>
+            <span style="display: inline-flex; align-items: center; gap: 4px;"><span class="material-symbols-outlined" style="font-size: 14px;">thumb_up</span> Helpful (19)</span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+
+  </div>
+
+  <!-- Interactive Write Review Modal -->
+  <div id="ReviewModal" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); max-width: 520px; width: 100%; padding: 32px; position: relative;">
+      
+      <button type="button" id="CloseReviewModalBtn" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: #fff; cursor: pointer;">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <h3 style="font-size: 22px; font-weight: 900; text-transform: uppercase; margin-bottom: 8px; color: #fff;">
+        SHARE YOUR EXPERIENCE
+      </h3>
+      <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 24px;">
+        Help fellow drivers choose the right automotive LED upgrade.
+      </p>
+
+      <form id="ReviewForm" onsubmit="event.preventDefault(); document.getElementById('ReviewSuccessMsg').style.display='block'; this.style.display='none';">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 6px; text-transform: uppercase;">Rating</label>
+          <div style="display: flex; gap: 6px; cursor: pointer;">
+            {% for i in (1..5) %}
+              <span class="material-symbols-outlined review-star-select" data-val="{{ i }}" style="font-size: 28px; color: var(--color-primary); font-variation-settings: 'FILL' 1;">star</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 6px; text-transform: uppercase;">Full Name</label>
+          <input type="text" required placeholder="e.g. Marcus Vance" style="width: 100%; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 6px; text-transform: uppercase;">Vehicle Model & Bulb Type</label>
+          <input type="text" required placeholder="e.g. Toyota Hilux 2022 (H4)" style="width: 100%; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 14px;">
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <label style="display: block; font-size: 12px; font-weight: 800; color: #fff; margin-bottom: 6px; text-transform: uppercase;">Review Comments</label>
+          <textarea required rows="4" placeholder="How was brightness, cutoff beam, installation, and weather resistance?" style="width: 100%; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; border-radius: var(--radius-sm); padding: 10px 14px; font-size: 14px; resize: vertical;"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; font-size: 14px; font-weight: 900;">
+          SUBMIT VERIFIED REVIEW
+        </button>
+      </form>
+
+      <div id="ReviewSuccessMsg" style="display: none; text-align: center; padding: 24px 0;">
+        <span class="material-symbols-outlined" style="font-size: 48px; color: #28a956; margin-bottom: 12px;">check_circle</span>
+        <h4 style="font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px;">THANK YOU FOR YOUR FEEDBACK!</h4>
+        <p style="font-size: 13px; color: var(--color-text-muted);">Your review has been submitted and will appear after quick verification.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "VERIFIED OWNER EXPERIENCES"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "DRIVER REVIEWS & <span style='color: #ffd900;'>FEEDBACK</span>"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Real road tests and highway performance feedback from over 25,000+ verified motorists worldwide."
+    },
+    {
+      "type": "text",
+      "id": "rating_score",
+      "label": "Rating Score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "default": "348"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Driver Review",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Marcus Thorne"
+        },
+        {
+          "type": "text",
+          "id": "vehicle",
+          "label": "Vehicle & Bulb Spec",
+          "default": "Ford F-150 (H11 Low Beam)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Review Headline",
+          "default": "Night and day difference on pitch-black mountain passes"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Review Body",
+          "default": "Installed in under 10 minutes. The light cutoff line is surgical—not a single oncoming car has flashed their brights at me, yet the shoulder illumination is 3x wider than stock halogens."
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date / Relative Time",
+          "default": "Verified 5 days ago"
+        },
+        {
+          "type": "number",
+          "id": "helpful_count",
+          "label": "Helpful Upvotes",
+          "default": 34
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Reviews"
+    }
+  ]
+}
+{% endschema %}

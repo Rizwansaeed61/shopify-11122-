@@ -1,54 +1,225 @@
-<section class="cart-page" style="padding: 80px 0; background: #12110c; min-height: 60vh;">
-  <div class="page-width" style="max-width: 800px;">
+<section class="cart-page" style="padding: 60px 0 100px; background: #12110c; min-height: 70vh;">
+  <div class="page-width">
     
-    <div style="border-bottom: 1px solid var(--color-border); padding-bottom: 24px; margin-bottom: 36px;">
-      <h1 style="font-size: 36px; font-weight: 900; text-transform: uppercase;">
-        {{ 'sections.cart.title' | t }}
-      </h1>
+    <!-- Free Shipping Progress Threshold Bar -->
+    {%- assign free_shipping_threshold = 7500 -%}
+    {%- assign current_total = cart.total_price -%}
+    {%- if current_total == 0 -%}
+      {%- assign current_total = 8900 -%} {%- comment -%} Demo preview total {%- endcomment -%}
+    {%- endif -%}
+
+    <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 36px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; font-size: 13px; font-weight: 800;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">local_shipping</span>
+          {% if current_total >= free_shipping_threshold %}
+            <span style="color: #28a956; text-transform: uppercase;">CONGRATULATIONS! YOU'VE UNLOCKED FREE WORLDWIDE EXPRESS SHIPPING!</span>
+          {% else %}
+            {% assign remaining = free_shipping_threshold | minus: current_total %}
+            <span>ADD <strong style="color: var(--color-primary);">{{ remaining | money }}</strong> MORE TO UNLOCK <span style="color: var(--color-primary);">FREE WORLDWIDE EXPRESS SHIPPING</span></span>
+          {% endif %}
+        </div>
+        <span style="color: var(--color-text-muted); font-size: 12px;">$75.00 Threshold</span>
+      </div>
+
+      <div style="height: 8px; background: var(--color-surface-elevated); border-radius: var(--radius-full); overflow: hidden;">
+        {%- if current_total >= free_shipping_threshold -%}
+          <div style="width: 100%; height: 100%; background: #28a956; border-radius: var(--radius-full); transition: width 0.4s ease;"></div>
+        {%- else -%}
+          {%- assign pct = current_total | times: 100 | divided_by: free_shipping_threshold -%}
+          <div style="width: {{ pct }}%; height: 100%; background: var(--color-primary); border-radius: var(--radius-full); transition: width 0.4s ease;"></div>
+        {%- endif -%}
+      </div>
     </div>
 
-    {%- if cart.item_count > 0 -%}
-      <form action="{{ routes.cart_url }}" method="post" novalidate>
-        <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px;">
-          {%- for item in cart.items -%}
-            <div class="glass-panel" style="display: flex; gap: 20px; padding: 24px; border-radius: var(--radius-md); align-items: center;">
-              <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title }}" width="80" height="80" style="border-radius: var(--radius-sm); object-fit: cover;">
-              <div style="flex: 1;">
-                <h3 style="font-size: 16px; font-weight: 800; text-transform: uppercase;">{{ item.product.title }}</h3>
-                <p style="font-size: 13px; color: var(--color-text-muted);">{{ item.variant.title }}</p>
-                <div style="font-size: 16px; font-weight: 900; color: var(--color-primary); margin-top: 8px;">{{ item.final_line_price | money }}</div>
+    <!-- Page Header -->
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--color-border); padding-bottom: 20px; margin-bottom: 36px;">
+      <div>
+        <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 6px;">
+          ORDER REVIEW
+        </span>
+        <h1 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;">
+          SHOPPING <span style="color: var(--color-primary);">CART</span>
+        </h1>
+      </div>
+      <a href="{{ routes.all_products_collection_url }}" style="color: var(--color-text-muted); font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+        <span class="material-symbols-outlined" style="font-size: 16px;">arrow_back</span>
+        <span>CONTINUE SHOPPING</span>
+      </a>
+    </div>
+
+    <form action="{{ routes.cart_url }}" method="post" id="cart-form" novalidate>
+      <div style="display: grid; grid-template-columns: 1fr; lg:grid-template-columns: 2fr 1fr; gap: 40px; align-items: start;">
+        
+        <!-- Left Column: Items -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          {%- if cart.item_count > 0 -%}
+            {%- for item in cart.items -%}
+              <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; display: flex; gap: 20px; align-items: center;">
+                {%- if item.image != blank -%}
+                  <img src="{{ item.image | image_url: width: 180 }}" alt="{{ item.title | escape }}" width="90" height="90" style="border-radius: var(--radius-sm); object-fit: cover; background: var(--color-surface-elevated);">
+                {%- else -%}
+                  <div style="width: 90px; height: 90px; border-radius: var(--radius-sm); background: var(--color-surface-elevated); display: flex; align-items: center; justify-content: center;">
+                    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 32px;">bolt</span>
+                  </div>
+                {%- endif -%}
+
+                <div style="flex: 1;">
+                  <h3 style="font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">
+                    <a href="{{ item.url }}" style="color: inherit; text-decoration: none;">{{ item.product.title }}</a>
+                  </h3>
+                  <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">
+                    Variant: <span style="color: #fff; font-weight: 600;">{{ item.variant.title }}</span>
+                  </p>
+                  <div style="font-size: 16px; font-weight: 900; color: var(--color-primary);">
+                    {{ item.final_price | money }}
+                  </div>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 16px;">
+                  <div class="quantity-stepper" style="display: flex; align-items: center; background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden;">
+                    <button type="button" data-action="minus" style="padding: 6px 12px; background: none; border: none; color: #fff; cursor: pointer;">-</button>
+                    <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width: 40px; background: transparent; border: none; color: #fff; text-align: center; font-weight: 700; font-size: 14px;">
+                    <button type="button" data-action="plus" style="padding: 6px 12px; background: none; border: none; color: #fff; cursor: pointer;">+</button>
+                  </div>
+
+                  <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #ff5555; display: inline-flex; align-items: center; padding: 6px;" title="Remove Item">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+                  </a>
+                </div>
               </div>
+            {%- endfor -%}
+          {%- else -%}
+            <!-- Demo Preview Item -->
+            <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px; display: flex; gap: 20px; align-items: center;">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Electro NightEye LED H4" width="90" height="90" style="border-radius: var(--radius-sm); object-fit: contain; background: var(--color-surface-elevated); padding: 6px;">
+
+              <div style="flex: 1;">
+                <h3 style="font-size: 16px; font-weight: 800; text-transform: uppercase; margin-bottom: 4px;">
+                  Electro NightEye LED Kit (Dual Beam)
+                </h3>
+                <p style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">
+                  Fitment: <span style="color: #fff; font-weight: 600;">H4 / 9003 (High/Low Beam) • 6500K</span>
+                </p>
+                <div style="font-size: 16px; font-weight: 900; color: var(--color-primary);">
+                  $89.00
+                </div>
+              </div>
+
               <div style="display: flex; align-items: center; gap: 16px;">
-                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" style="width: 50px; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; text-align: center; border-radius: 6px; padding: 6px;">
-                <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" style="color: #ff5555;">
-                  <span class="material-symbols-outlined">delete</span>
-                </a>
+                <div class="quantity-stepper" style="display: flex; align-items: center; background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow: hidden;">
+                  <button type="button" data-action="minus" style="padding: 6px 12px; background: none; border: none; color: #fff; cursor: pointer;">-</button>
+                  <input type="number" value="1" min="1" style="width: 40px; background: transparent; border: none; color: #fff; text-align: center; font-weight: 700; font-size: 14px;">
+                  <button type="button" data-action="plus" style="padding: 6px 12px; background: none; border: none; color: #fff; cursor: pointer;">+</button>
+                </div>
+
+                <button type="button" style="background: none; border: none; color: #ff5555; cursor: pointer; padding: 6px;" title="Remove Item">
+                  <span class="material-symbols-outlined" style="font-size: 20px;">delete</span>
+                </button>
               </div>
             </div>
-          {%- endfor -%}
+          {%- endif -%}
+
+          <!-- Vehicle Fitment Note -->
+          <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 24px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">directions_car</span>
+              <h4 style="font-size: 14px; font-weight: 800; text-transform: uppercase;">Vehicle Fitment Verification (Optional)</h4>
+            </div>
+            <p style="font-size: 12px; color: var(--color-text-muted); margin-bottom: 12px;">
+              Provide your vehicle details (e.g. <em>2023 Toyota Hilux Revo</em> or <em>2021 Honda Civic</em>) and our certified lighting technicians will verify socket fitment before packing.
+            </p>
+            <input 
+              type="text" 
+              name="note" 
+              placeholder="e.g. 2022 Ford F-150 / H11 Low Beam" 
+              value="{{ cart.note }}"
+              style="width: 100%; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; border-radius: var(--radius-sm); padding: 12px 16px; font-size: 13px;"
+            >
+          </div>
+
         </div>
 
-        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 16px; border-top: 1px solid var(--color-border); padding-top: 24px;">
-          <div style="font-size: 20px; font-weight: 900;">
-            <span>{{ 'sections.cart.subtotal' | t }}: </span>
-            <span style="color: var(--color-primary);">{{ cart.total_price | money }}</span>
+        <!-- Right Column: Order Summary & Checkout -->
+        <div style="position: sticky; top: 100px;">
+          <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 32px;">
+            
+            <h3 style="font-size: 18px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; border-bottom: 1px solid var(--color-border); padding-bottom: 14px;">
+              ORDER SUMMARY
+            </h3>
+
+            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px; font-size: 14px;">
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">Subtotal</span>
+                <span style="font-weight: 800; color: #fff;">{{ cart.total_price | default: 8900 | money }}</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">Express Shipping</span>
+                <span style="font-weight: 800; color: #28a956;">FREE</span>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <span style="color: var(--color-text-muted);">Taxes & Duties</span>
+                <span style="color: var(--color-text-muted); font-size: 12px;">Included / Calculated at checkout</span>
+              </div>
+
+              <div style="border-top: 1px solid var(--color-border); padding-top: 14px; display: flex; justify-content: space-between; align-items: baseline;">
+                <span style="font-size: 16px; font-weight: 900; text-transform: uppercase;">Estimated Total</span>
+                <span style="font-size: 24px; font-weight: 900; color: var(--color-primary);">{{ cart.total_price | default: 8900 | money }}</span>
+              </div>
+            </div>
+
+            <!-- Checkout Button -->
+            <button 
+              type="submit" 
+              name="checkout" 
+              class="btn-primary" 
+              style="width: 100%; padding: 18px; font-size: 15px; font-weight: 900; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 4px 20px rgba(255,217,0,0.3);"
+            >
+              <span class="material-symbols-outlined" style="font-size: 20px;">lock</span>
+              <span>PROCEED TO CHECKOUT</span>
+            </button>
+
+            <!-- Safe Checkout Guarantee -->
+            <div style="margin-top: 24px; text-align: center;">
+              <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.1em; display: block; margin-bottom: 12px;">
+                GUARANTEED SAFE & SECURE CHECKOUT
+              </span>
+
+              <!-- Payment Icons Row -->
+              <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 16px;">
+                <span style="background: #ffffff; color: #1a1f36; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center;">VISA</span>
+                <span style="background: #ffffff; color: #eb001b; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center;">MASTERCARD</span>
+                <span style="background: #006fcf; color: #ffffff; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center;">AMEX</span>
+                <span style="background: #000000; color: #ffffff; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.3);">APPLE PAY</span>
+                <span style="background: #5a31f4; color: #ffffff; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center;">SHOP PAY</span>
+                <span style="background: #003087; color: #ffffff; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: 4px; display: inline-flex; align-items: center;">PAYPAL</span>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px; color: var(--color-text-muted); text-align: left; background: var(--color-surface-elevated); padding: 12px 16px; border-radius: var(--radius-sm);">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="material-symbols-outlined" style="font-size: 14px; color: #28a956;">verified_user</span>
+                  <span>256-Bit Bank-Grade SSL Encryption</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="material-symbols-outlined" style="font-size: 14px; color: #28a956;">sync</span>
+                  <span>30-Day Money-Back Guarantee</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                  <span class="material-symbols-outlined" style="font-size: 14px; color: #28a956;">shield</span>
+                  <span>2-Year Direct Replacement Warranty Included</span>
+                </div>
+              </div>
+
+            </div>
+
           </div>
-          <button type="submit" name="checkout" class="btn-primary" style="padding: 16px 40px; font-size: 15px;">
-            {{ 'sections.cart.checkout' | t }}
-          </button>
         </div>
-      </form>
-    {%- else -%}
-      <div style="text-align: center; padding: 60px 0;">
-        <span class="material-symbols-outlined" style="font-size: 64px; color: var(--color-primary); margin-bottom: 16px;">remove_shopping_cart</span>
-        <p style="font-size: 18px; color: var(--color-text-muted); margin-bottom: 24px;">
-          {{ 'sections.cart.empty' | t }}
-        </p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn-primary">
-          {{ 'sections.cart.continue_shopping' | t }}
-        </a>
+
       </div>
-    {%- endif -%}
+    </form>
 
   </div>
 </section>

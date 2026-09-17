@@ -1,9 +1,52 @@
-<section class="error-404" style="padding: 120px 0; background: #12110c; text-align: center;">
-  <div class="page-width" style="max-width: 600px;">
-    <span style="font-size: 80px; font-weight: 900; color: var(--color-primary); line-height: 1;">404</span>
-    <h1 style="font-size: 32px; font-weight: 900; text-transform: uppercase; margin: 16px 0 20px;">Page Not Found</h1>
-    <p style="color: var(--color-text-muted); margin-bottom: 32px;">The page you requested could not be found. Check the URL or head back home.</p>
-    <a href="{{ routes.root_url }}" class="btn-primary">Return to Homepage</a>
+<section class="error-404" style="padding: 80px 0 100px; background: #12110c;">
+  <div class="page-width">
+    
+    <div style="max-width: 680px; margin: 0 auto 64px; text-align: center;">
+      <span style="font-size: clamp(60px, 10vw, 100px); font-weight: 900; color: var(--color-primary); line-height: 1; letter-spacing: -0.04em; text-shadow: 0 0 30px rgba(255,217,0,0.3);">
+        404
+      </span>
+      <h1 style="font-size: clamp(26px, 4vw, 36px); font-weight: 900; text-transform: uppercase; margin: 12px 0 16px; letter-spacing: -0.02em;">
+        PRODUCT CATALOG <span style="color: var(--color-primary);">PREVIEW</span>
+      </h1>
+      <p style="color: var(--color-text-muted); font-size: 15px; margin-bottom: 28px; line-height: 1.6;">
+        This specific bulb configuration is currently being staged in the inventory database or the link has updated. Explore our full industrial-grade LED catalog below or return to the homepage.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+        <a href="{{ routes.all_products_collection_url }}" class="btn-primary" style="padding: 12px 28px; font-size: 13px; font-weight: 800;">
+          <span>VIEW FULL CATALOG</span>
+          <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+        </a>
+        <a href="{{ routes.root_url }}" class="btn-secondary" style="padding: 12px 28px; font-size: 13px; font-weight: 800;">
+          RETURN TO HOMEPAGE
+        </a>
+      </div>
+    </div>
+
+    <!-- Recommended Products Grid on 404 -->
+    <div style="border-top: 1px solid var(--color-border); padding-top: 48px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px;">
+        <div>
+          <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 6px;">
+            TOP MOTORIST CHOICES
+          </span>
+          <h2 style="font-size: 24px; font-weight: 900; text-transform: uppercase;">
+            RECOMMENDED <span style="color: var(--color-primary);">LED CONVERSION KITS</span>
+          </h2>
+        </div>
+        <a href="{{ routes.all_products_collection_url }}" style="color: var(--color-primary); font-size: 12px; font-weight: 800; text-decoration: none;">
+          SEE ALL KITS &rarr;
+        </a>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;">
+        {% render 'product-card', title: 'Electro NightEye LED H4 (Dual Beam)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H7 (Low/High Beam)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED HB3 / 9005', price: 9500, lumens: '16,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H11 (Fog & Low)', price: 8900, lumens: '15,000 LM' %}
+      </div>
+    </div>
+
   </div>
 </section>
 
