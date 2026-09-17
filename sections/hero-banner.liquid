@@ -1,0 +1,130 @@
+<section class="hero-section" style="position: relative; padding: 100px 0 80px; overflow: hidden; background: radial-gradient(circle at 50% 20%, rgba(255, 217, 0, 0.12), transparent 60%), #12110c;">
+  <div class="page-width" style="position: relative; z-index: 2; text-align: center; max-width: 960px;">
+    
+    {%- if section.settings.eyebrow != blank -%}
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 217, 0, 0.1); border: 1px solid rgba(255, 217, 0, 0.3); padding: 6px 16px; border-radius: var(--radius-full); margin-bottom: 24px;">
+        <span class="material-symbols-outlined text-primary" style="font-size: 16px; color: var(--color-primary);">bolt</span>
+        <span style="color: var(--color-primary); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em;">
+          {{ section.settings.eyebrow }}
+        </span>
+      </div>
+    {%- endif -%}
+
+    <h1 style="font-size: clamp(38px, 6vw, 76px); font-weight: 900; line-height: 1.05; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom: 24px;">
+      {{ section.settings.title | default: 'BRIGHTEN YOUR <span style="color: var(--color-primary); font-style: italic;">HEADLIGHTS</span>' }}
+    </h1>
+
+    <p style="font-size: clamp(16px, 2vw, 20px); color: var(--color-text-muted); max-width: 700px; margin: 0 auto 40px; line-height: 1.6;">
+      {{ section.settings.subtitle | default: 'Industrial-grade LED conversion kits engineered to eliminate blind spots and pierce through harsh rain, fog, and pitch-black highways.' }}
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 60px;">
+      {%- if section.settings.btn_1_text != blank -%}
+        <a href="{{ section.settings.btn_1_url | default: '/products/electro-nighteye-led' }}" class="btn-primary" style="padding: 16px 36px; font-size: 15px;">
+          <span>{{ section.settings.btn_1_text }}</span>
+          <span class="material-symbols-outlined font-black">arrow_forward</span>
+        </a>
+      {%- endif -%}
+
+      {%- if section.settings.btn_2_text != blank -%}
+        <a href="{{ section.settings.btn_2_url | default: '#compatibility' }}" class="btn-secondary" style="padding: 16px 36px; font-size: 15px;">
+          <span>{{ section.settings.btn_2_text }}</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <!-- Trust Stats Strip -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; border-top: 1px solid var(--color-border); padding-top: 40px;">
+      {%- for block in section.blocks -%}
+        <div class="glass-panel" style="padding: 20px 16px; border-radius: var(--radius-md); text-align: center;" {{ block.shopify_attributes }}>
+          <div style="font-size: 28px; font-weight: 900; color: var(--color-primary); line-height: 1.1;">
+            {{ block.settings.stat_value }}
+          </div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); margin-top: 6px; letter-spacing: 0.05em;">
+            {{ block.settings.stat_label }}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "MILITARY-SPEC OPTICS & LIGHTING"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "BRIGHTEN YOUR <span style='color: #ffd900; font-style: italic;'>HEADLIGHTS</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Industrial-grade LED conversion kits engineered to eliminate blind spots and pierce through harsh rain, fog, and pitch-black highways."
+    },
+    {
+      "type": "text",
+      "id": "btn_1_text",
+      "label": "Primary Button Text",
+      "default": "SHOP NIGHTEYE LED"
+    },
+    {
+      "type": "url",
+      "id": "btn_1_url",
+      "label": "Primary Button URL"
+    },
+    {
+      "type": "text",
+      "id": "btn_2_text",
+      "label": "Secondary Button Text",
+      "default": "CHECK FITMENT"
+    },
+    {
+      "type": "url",
+      "id": "btn_2_url",
+      "label": "Secondary Button URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Value",
+          "default": "15,000 LM"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Label",
+          "default": "Ultra Bright Output"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "blocks": [
+        { "type": "stat", "settings": { "stat_value": "15,000 LM", "stat_label": "High Output Beam" } },
+        { "type": "stat", "settings": { "stat_value": "IP68", "stat_label": "Waterproof Rating" } },
+        { "type": "stat", "settings": { "stat_value": "50,000+", "stat_label": "Hours Lifespan" } },
+        { "type": "stat", "settings": { "stat_value": "99.9%", "stat_label": "Canbus Error Free" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

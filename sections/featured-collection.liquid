@@ -1,0 +1,75 @@
+<section class="featured-collection" style="padding: 100px 0; background: #181710; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+  <div class="page-width">
+    
+    <div style="display: flex; flex-direction: column; md:flex-row; justify-content: space-between; align-items: flex-end; margin-bottom: 48px; gap: 20px;">
+      <div>
+        <span style="font-size: 12px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 8px;">
+          {{ section.settings.eyebrow | default: 'PLUG & PLAY FITMENT' }}
+        </span>
+        <h2 style="font-size: clamp(28px, 4vw, 48px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;">
+          {{ section.settings.title | default: 'INDUSTRIAL GRADE <span style="color: var(--color-primary);">BEST SELLERS</span>' }}
+        </h2>
+      </div>
+
+      <a href="{{ section.settings.collection.url | default: '/collections/all' }}" class="btn-secondary" style="font-size: 12px; padding: 10px 24px;">
+        <span>VIEW FULL CATALOG</span>
+        <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+      </a>
+    </div>
+
+    <!-- Products Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px;">
+      {%- if section.settings.collection.products.size > 0 -%}
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        <!-- Pre-configured Demo Products Matching Stitch Designs -->
+        {% render 'product-card', title: 'Electro NightEye LED H4 (Dual Beam)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H7 (Low/High)', price: 8900, lumens: '15,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED HB3 / 9005', price: 9500, lumens: '16,000 LM' %}
+        {% render 'product-card', title: 'Electro NightEye LED H11 (Fog/Low)', price: 8900, lumens: '15,000 LM' %}
+      {%- endif -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "PLUG & PLAY FITMENT"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "INDUSTRIAL GRADE <span style='color: #ffd900;'>BEST SELLERS</span>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "default": 4,
+      "label": "Products to Show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

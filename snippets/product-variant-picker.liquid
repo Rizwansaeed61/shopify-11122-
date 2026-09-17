@@ -1,0 +1,24 @@
+{%- comment -%}
+  Renders product variant-picker
+  Usage:
+  {% render 'product-variant-picker', product: product %}
+{%- endcomment -%}
+
+<div class="product-variants" style="margin: 20px 0;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <span style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+      Select Bulb Fitment: <span data-selected-variant style="color: var(--color-primary);">H4 (High/Low Beam)</span>
+    </span>
+    <a href="#compatibility" style="font-size: 12px; color: var(--color-primary); text-decoration: underline;">
+      Need Help Choosing?
+    </a>
+  </div>
+
+  <div class="variant-pills">
+    <button type="button" class="variant-pill active" data-value="H4">H4 (Dual Beam)</button>
+    <button type="button" class="variant-pill" data-value="H7">H7 (Single Beam)</button>
+    <button type="button" class="variant-pill" data-value="H11">H11 (Fog/Low)</button>
+    <button type="button" class="variant-pill" data-value="HB3">HB3 / 9005 (High)</button>
+    <button type="button" class="variant-pill" data-value="HB4">HB4 / 9006 (Low)</button>
+  </div>
+</div>

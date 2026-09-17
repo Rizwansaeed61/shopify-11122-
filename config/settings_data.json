@@ -1,0 +1,32 @@
+{
+  "current": {
+    "color_primary": "#ffd900",
+    "color_bg_dark": "#12110c",
+    "color_surface": "#1a1912",
+    "color_surface_elevated": "#242217",
+    "color_text_primary": "#ffffff",
+    "color_text_muted": "#a3a195",
+    "color_border": "rgba(255, 255, 255, 0.12)",
+    "enable_glow_effects": true,
+    "cart_type": "drawer",
+    "logo_width": 140,
+    "social_facebook_link": "https://facebook.com",
+    "social_instagram_link": "https://instagram.com",
+    "social_youtube_link": "https://youtube.com",
+    "social_twitter_link": "https://x.com"
+  },
+  "presets": {
+    "Default": {
+      "color_primary": "#ffd900",
+      "color_bg_dark": "#12110c",
+      "color_surface": "#1a1912",
+      "color_surface_elevated": "#242217",
+      "color_text_primary": "#ffffff",
+      "color_text_muted": "#a3a195",
+      "color_border": "rgba(255, 255, 255, 0.12)",
+      "enable_glow_effects": true,
+      "cart_type": "drawer",
+      "logo_width": 140
+    }
+  }
+}

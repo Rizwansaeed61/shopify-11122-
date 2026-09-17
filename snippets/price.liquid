@@ -1,0 +1,28 @@
+{%- comment -%}
+  Renders a list of product prices (regular, sale)
+  Usage:
+  {% render 'price', product: product, price_class: '' %}
+{%- endcomment -%}
+
+{%- liquid
+  assign target = product.selected_or_first_available_variant | default: product
+  assign price = target.price | default: 8900
+  assign compare_at_price = target.compare_at_price | default: 11900
+-%}
+
+<div class="price {{ price_class }} flex items-center gap-3">
+  <span class="price-item price-item--regular" style="font-size: 28px; font-weight: 900; color: var(--color-primary); letter-spacing: -0.02em;">
+    {{ price | money }}
+  </span>
+  {%- if compare_at_price > price -%}
+    <s class="price-item price-item--compare" style="font-size: 18px; color: var(--color-text-muted); text-decoration: line-through;">
+      {{ compare_at_price | money }}
+    </s>
+    <span style="background: rgba(255, 217, 0, 0.15); color: var(--color-primary); border: 1px solid rgba(255, 217, 0, 0.3); font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: var(--radius-full); text-transform: uppercase;">
+      SAVE {{ compare_at_price | minus: price | times: 100.0 | divided_by: compare_at_price | round }}%
+    </span>
+  {%- endif -%}
+  <span style="background: rgba(40, 169, 86, 0.15); color: #28a956; border: 1px solid rgba(40, 169, 86, 0.3); font-size: 11px; font-weight: 800; padding: 3px 8px; border-radius: var(--radius-full); text-transform: uppercase;">
+    IN STOCK
+  </span>
+</div>

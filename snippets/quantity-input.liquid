@@ -1,0 +1,11 @@
+{%- comment -%}
+  Renders quantity input stepper
+  Usage:
+  {% render 'quantity-input' %}
+{%- endcomment -%}
+
+<div class="quantity-stepper" style="display: inline-flex; align-items: center; border: 1px solid var(--color-border); border-radius: var(--radius-full); background: var(--color-surface-elevated); padding: 4px 8px;">
+  <button type="button" data-action="minus" style="background: none; border: none; color: #fff; width: 32px; height: 32px; cursor: pointer; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: center;">-</button>
+  <input type="number" name="quantity" value="1" min="1" style="width: 44px; text-align: center; background: none; border: none; color: #fff; font-weight: 800; font-size: 15px; -moz-appearance: textfield;">
+  <button type="button" data-action="plus" style="background: none; border: none; color: #fff; width: 32px; height: 32px; cursor: pointer; font-size: 18px; font-weight: bold; display: flex; align-items: center; justify-content: center;">+</button>
+</div>

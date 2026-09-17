@@ -1,0 +1,40 @@
+{%- comment -%}
+  Renders product media gallery with thumbnails
+  Usage:
+  {% render 'product-media-gallery', product: product %}
+{%- endcomment -%}
+
+<div class="product-gallery">
+  <div class="product-gallery__main relative">
+    <div style="position: absolute; top: 16px; left: 16px; z-index: 2; display: flex; flex-direction: column; gap: 8px;">
+      <span style="background: var(--color-primary); color: #12110c; font-size: 11px; font-weight: 900; padding: 4px 10px; border-radius: var(--radius-full); text-transform: uppercase;">
+        PRO SERIES
+      </span>
+      <span style="background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); color: #fff; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2);">
+        15,000 LUMENS
+      </span>
+    </div>
+
+    {%- if product.featured_image != blank -%}
+      <img src="{{ product.featured_image | image_url: width: 900 }}" alt="{{ product.title }}" width="600" height="600" style="width: 100%; height: 100%; object-fit: contain;">
+    {%- else -%}
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Electro NightEye LED" width="600" height="600" style="width: 100%; height: 100%; object-fit: contain;">
+    {%- endif -%}
+  </div>
+
+  <div class="product-gallery__thumbs">
+    <div class="product-gallery__thumb active" data-image-src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" width="80" height="80" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    <div class="product-gallery__thumb" data-image-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsMqNCUW14JK_hPLO34QcGH9uMCDg3e_V5i2eOL_JUUDJMGcbagFLMx650pu30TsvyWocJV8hB_kyGMtF5IvUoMaJrFIncu9rgV4Bzk4pIFRdlptD6ZUCFfIOZszwmsj-99opyV0XR7wcxJaLPSU4YcIFa113LrmMwCdRRLYUFbpPSc8YVUfavb82yiQD2YM5mBWiwBGsjqCaOz4fxOYbL-7F5S6hYA2tsTWdmdaTTWxnx_9MYLAI_0KWQL9IiLjveRTBmWyxq45Fo">
+      <div style="width: 100%; height: 100%; background: #23200f; display: flex; align-items: center; justify-content: center;">
+        <span class="material-symbols-outlined text-primary" style="color: var(--color-primary);">wb_sunny</span>
+      </div>
+    </div>
+    <div class="product-gallery__thumb" data-image-src="https://lh3.googleusercontent.com/aida/AEtjO1Xe9gAliM294P5NLif4p4sVsxYLXYIWMaCQGBEFplGZkHWDNptyAal10xlyeLTDsTWrXwlNlWNEg3uTt8nzUjN8fiPqSQ1NgBFVZ8viPIcCCfvZWn7RhGEGUYOFKMl2gGmcgbb0n9LYBmNUzbKHmYBI0iaGWDZtdmqrqGbv9aPMuA7vAp2A1_NQ1L9RpFx_vA4M844wgp3tTQiqAmdEYO_iXNk6KkFVddgAZpXooNjbduJZCE15I5yn24I0">
+      <div style="width: 100%; height: 100%; background: #1a1912; display: flex; align-items: center; justify-content: center;">
+        <span class="material-symbols-outlined text-primary" style="color: var(--color-primary);">water_drop</span>
+      </div>
+    </div>
+  </div>
+</div>

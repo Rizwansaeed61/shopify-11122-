@@ -1,0 +1,331 @@
+{
+  "sections": {
+    "hero_banner": {
+      "type": "hero-banner",
+      "blocks": {
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "15,000 LM",
+            "stat_label": "High Output Beam"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "IP68",
+            "stat_label": "Waterproof Rating"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "50,000+",
+            "stat_label": "Hours Lifespan"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "stat_value": "99.9%",
+            "stat_label": "Canbus Error Free"
+          }
+        }
+      },
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
+      "settings": {
+        "eyebrow": "MILITARY-SPEC OPTICS & LIGHTING",
+        "title": "BRIGHTEN YOUR <span style='color: #ffd900; font-style: italic;'>HEADLIGHTS</span>",
+        "subtitle": "Industrial-grade LED conversion kits engineered to eliminate blind spots and pierce through harsh rain, fog, and pitch-black highways.",
+        "btn_1_text": "SHOP NIGHTEYE LED",
+        "btn_1_url": "/products/electro-nighteye-led",
+        "btn_2_text": "CHECK FITMENT",
+        "btn_2_url": "#compatibility"
+      }
+    },
+    "marquee_1": {
+      "type": "marquee-banner",
+      "settings": {
+        "text": "Precision Engineering • Racing Grade Optics • Night Vision Enhanced • 15,000 Lumens • IP68 Waterproof • Canbus Error Free •"
+      }
+    },
+    "feature_spotlight": {
+      "type": "feature-spotlight",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "bolt",
+            "heading": "Extreme Brightness",
+            "text": "Ultra-focused beam delivers maximum clarity without oncoming glare."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "water_drop",
+            "heading": "Storm Proof IP68",
+            "text": "Tested in extreme monsoon conditions and high-pressure jet washes."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "settings_suggest",
+            "heading": "Plug & Play Direct Fit",
+            "text": "Instant 1:1 OEM headlight socket replacement with zero wire modification."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "eyebrow": "SUPERIOR ROAD VISIBILITY",
+        "title": "OWN THE <span style='color: #ffd900;'>NIGHT</span>",
+        "description": "Dominate the darkness with industrial-grade precision. Our LED systems are engineered for the bold who refuse to let the sun dictate their journey.",
+        "button_text": "VIEW SPECIFICATIONS",
+        "button_url": "#specs"
+      }
+    },
+    "technical_specs": {
+      "type": "technical-specs",
+      "blocks": {
+        "spec_1": {
+          "type": "spec",
+          "settings": {
+            "icon": "wb_sunny",
+            "title": "15,000 Lumens",
+            "text": "Piercing automotive CSP chips deliver razor-sharp cutoff lines with zero stray upward glare."
+          }
+        },
+        "spec_2": {
+          "type": "spec",
+          "settings": {
+            "icon": "water_drop",
+            "title": "IP68 Submersible",
+            "text": "Triple silicone sealed housing completely protects against water submersion and desert dust."
+          }
+        },
+        "spec_3": {
+          "type": "spec",
+          "settings": {
+            "icon": "schedule",
+            "title": "50,000+ Hours",
+            "text": "12,000 RPM silent hydraulic turbo fan pulls heat rapidly off the dual copper substrate."
+          }
+        },
+        "spec_4": {
+          "type": "spec",
+          "settings": {
+            "icon": "memory",
+            "title": "Intelligent Canbus",
+            "text": "Integrated decoding driver prevents flicker, dashboard bulb-out warnings, and ECU errors."
+          }
+        }
+      },
+      "block_order": [
+        "spec_1",
+        "spec_2",
+        "spec_3",
+        "spec_4"
+      ],
+      "settings": {
+        "eyebrow": "LAB TESTED BENCHMARKS",
+        "title": "ENGINEERED FOR <span style='color: #ffd900;'>EXTREMES</span>",
+        "subtitle": "Every component is precision-machined from aircraft-grade aluminum to deliver consistent lumen output under heavy thermal loads."
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "PLUG & PLAY FITMENT",
+        "title": "INDUSTRIAL GRADE <span style='color: #ffd900;'>BEST SELLERS</span>",
+        "products_to_show": 4
+      }
+    },
+    "comparison_table": {
+      "type": "comparison-table",
+      "blocks": {
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "icon": "wb_sunny",
+            "metric": "Lumen Output",
+            "electro_val": "15,000 LM (300% Brighter)",
+            "halogen_val": "1,200 LM (Dim Yellow)",
+            "generic_val": "6,000 LM (Exaggerated)"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "icon": "schedule",
+            "metric": "Operational Lifespan",
+            "electro_val": "50,000+ Hours",
+            "halogen_val": "500 - 1,000 Hours",
+            "generic_val": "8,000 Hours"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "icon": "water_drop",
+            "metric": "Water & Dust Proofing",
+            "electro_val": "IP68 Submersible",
+            "halogen_val": "Unsealed / Open Back",
+            "generic_val": "IP65 Splashes Only"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "icon": "air",
+            "metric": "Thermal Dissipation",
+            "electro_val": "12,000 RPM Silent Turbo Fan",
+            "halogen_val": "Passive Glass Filament",
+            "generic_val": "Cheap Aluminum Fin"
+          }
+        },
+        "row_5": {
+          "type": "row",
+          "settings": {
+            "icon": "verified_user",
+            "metric": "Direct Warranty",
+            "electro_val": "2-Year Full Replacement",
+            "halogen_val": "None / 30 Days",
+            "generic_val": "No Official Warranty"
+          }
+        }
+      },
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4",
+        "row_5"
+      ],
+      "settings": {
+        "eyebrow": "DATA-BACKED SUPERIORITY",
+        "title": "SUPERIORITY <span style='color: #ffd900;'>ENGINEERED</span>",
+        "subtitle": "See how Electro NightEye LED outperforms stock factory halogens and generic budget LEDs across every critical safety metric."
+      }
+    },
+    "compatibility_search": {
+      "type": "product-compatibility-search",
+      "settings": {}
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "test_1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Unbelievable difference on unlit rural highways. The beam cutoff is razor sharp so nobody flashes their lights at me, yet the road ahead is as clear as daytime.",
+            "author": "Marcus Thorne",
+            "vehicle": "Ford F-150 (H11 Low Beam)"
+          }
+        },
+        "test_2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Direct 5-minute plug and play installation on my Civic. Zero error codes on the dashboard and completely waterproof during torrential monsoon downpours.",
+            "author": "Rahul Mehta",
+            "vehicle": "Honda Civic (H7)"
+          }
+        },
+        "test_3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The 6500K cool white light penetrates through dense fog without yellowing or overheating. By far the highest quality LED upgrade I've ever installed.",
+            "author": "David Vance",
+            "vehicle": "Toyota 4Runner (H4 Dual Beam)"
+          }
+        }
+      },
+      "block_order": [
+        "test_1",
+        "test_2",
+        "test_3"
+      ],
+      "settings": {
+        "eyebrow": "VERIFIED HIGHWAY REVIEWS",
+        "title": "WHAT DRIVERS <span style='color: #ffd900;'>SAY</span>",
+        "subtitle": "Real feedback from over 25,000+ drivers who trust Electro NightEye for unmatched nighttime road safety."
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will these bulbs trigger a Canbus dashboard error light?",
+            "answer": "No. Electro NightEye LEDs feature integrated micro-decoders that replicate OEM halogen resistance, ensuring 99.9% error-free operation without ECU warning lights or flickering."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How difficult is the installation process?",
+            "answer": "It is completely plug-and-play. They are engineered to 1:1 OEM dimensions. Simply unplug your old factory bulb and twist in the Electro LED. Most drivers complete installation in under 10 minutes per headlight."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will these headlights blind oncoming drivers?",
+            "answer": "No. Our ultra-thin 1.0mm copper board positions the CSP chips at the exact focal point of factory reflector and projector housings, creating a razor-sharp horizontal cutoff line with zero stray upward glare."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does the 2-Year Warranty cover?",
+            "answer": "Our warranty provides full 100% no-hassle replacement coverage for any manufacturing defect, chip failure, fan malfunction, or water intrusion for a full 24 months from purchase date."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4"
+      ],
+      "settings": {
+        "eyebrow": "SUPPORT & FITMENT HELP",
+        "title": "COMMON <span style='color: #ffd900;'>QUESTIONS</span>"
+      }
+    },
+    "cta_banner": {
+      "type": "cta-banner",
+      "settings": {
+        "title": "READY TO UPGRADE YOUR <span style='color: #ffd900;'>VISION?</span>",
+        "subtitle": "Join over 25,000+ satisfied motorists enjoying crystal-clear, daylight-level illumination on every midnight journey.",
+        "button_text": "ORDER NIGHTEYE LED NOW",
+        "button_url": "/products/electro-nighteye-led",
+        "secondary_button_text": "CHAT WITH A LIGHTING TECH",
+        "secondary_button_url": "#faq"
+      }
+    }
+  },
+  "order": [
+    "hero_banner",
+    "marquee_1",
+    "feature_spotlight",
+    "technical_specs",
+    "featured_collection",
+    "comparison_table",
+    "compatibility_search",
+    "testimonials",
+    "faq",
+    "cta_banner"
+  ]
+}

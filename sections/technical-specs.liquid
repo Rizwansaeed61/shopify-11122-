@@ -1,0 +1,156 @@
+<section id="specs" class="technical-specs" style="padding: 100px 0; background: #12110c;">
+  <div class="page-width">
+    
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 60px;">
+      <span style="font-size: 12px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 8px;">
+        {{ section.settings.eyebrow | default: 'LAB TESTED BENCHMARKS' }}
+      </span>
+      <h2 style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em;">
+        {{ section.settings.title | default: 'ENGINEERED FOR <span style="color: var(--color-primary);">EXTREMES</span>' }}
+      </h2>
+      <p style="font-size: 16px; color: var(--color-text-muted); margin-top: 14px;">
+        {{ section.settings.subtitle | default: 'Every component is precision-machined from aircraft-grade aluminum to deliver consistent lumen output under heavy thermal loads.' }}
+      </p>
+    </div>
+
+    <!-- 3-Column Interactive Specs Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; align-items: center;">
+      
+      <!-- Left Specs Column -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        {%- for block in section.blocks limit: 2 -%}
+          <div class="glass-panel neon-border" style="padding: 28px; border-radius: var(--radius-md);" {{ block.shopify_attributes }}>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-primary);">{{ block.settings.icon | default: 'wb_sunny' }}</span>
+              <h3 style="font-size: 20px; font-weight: 900; text-transform: uppercase;">{{ block.settings.title }}</h3>
+            </div>
+            <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">{{ block.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <!-- Center Product Visual -->
+      <div style="display: flex; justify-content: center; position: relative;">
+        <div style="position: absolute; inset: -30px; background: radial-gradient(circle, rgba(255,217,0,0.2), transparent 70%); filter: blur(40px); border-radius: 50%;"></div>
+        <div style="position: relative; z-index: 2; width: 100%; max-width: 380px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center;">
+          {%- if section.settings.center_image != blank -%}
+            <img src="{{ section.settings.center_image | image_url: width: 600 }}" alt="Technical Specs Visual" style="width: 100%; height: 100%; object-fit: contain;">
+          {%- else -%}
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Technical Specs Visual" style="width: 100%; height: 100%; object-fit: contain;">
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Right Specs Column -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        {%- for block in section.blocks offset: 2 -%}
+          <div class="glass-panel neon-border" style="padding: 28px; border-radius: var(--radius-md);" {{ block.shopify_attributes }}>
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+              <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-primary);">{{ block.settings.icon | default: 'schedule' }}</span>
+              <h3 style="font-size: 20px; font-weight: 900; text-transform: uppercase;">{{ block.settings.title }}</h3>
+            </div>
+            <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">{{ block.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Technical Specs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "LAB TESTED BENCHMARKS"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "ENGINEERED FOR <span style='color: #ffd900;'>EXTREMES</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Every component is precision-machined from aircraft-grade aluminum to deliver consistent lumen output under heavy thermal loads."
+    },
+    {
+      "type": "image_picker",
+      "id": "center_image",
+      "label": "Center Visual Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "spec",
+      "name": "Specification Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "bolt"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Spec Title",
+          "default": "15,000 Lumens"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Custom automotive-grade CSP chips deliver piercing cut-off lines and zero dark spots."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Technical Specs",
+      "blocks": [
+        {
+          "type": "spec",
+          "settings": {
+            "icon": "wb_sunny",
+            "title": "15,000 Lumens",
+            "text": "Piercing automotive CSP chips deliver razor-sharp cutoff lines with zero stray glare."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "icon": "water_drop",
+            "title": "IP68 Submersible",
+            "text": "Triple silicone sealed housing completely protects against water submersion and sand."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "icon": "schedule",
+            "title": "50,000+ Hours",
+            "text": "12,000 RPM silent hydraulic turbo fan pulls heat rapidly off the dual copper substrate."
+          }
+        },
+        {
+          "type": "spec",
+          "settings": {
+            "icon": "memory",
+            "title": "Intelligent Canbus",
+            "text": "Integrated decoding driver prevents flicker, dashboard bulb-out warnings, and ECU errors."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

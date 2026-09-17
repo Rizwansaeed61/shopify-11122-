@@ -1,0 +1,124 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Electro Automotive",
+    "theme_version": "1.0.0",
+    "theme_author": "Antigravity",
+    "theme_documentation_url": "https://electro-led.example.com/docs",
+    "theme_support_url": "https://electro-led.example.com/support"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary Accent (Neon)",
+        "default": "#ffd900"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_dark",
+        "label": "Page Background",
+        "default": "#12110c"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Card / Container Surface",
+        "default": "#1a1912"
+      },
+      {
+        "type": "color",
+        "id": "color_surface_elevated",
+        "label": "Elevated Container Surface",
+        "default": "#242217"
+      },
+      {
+        "type": "color",
+        "id": "color_text_primary",
+        "label": "Primary Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text_muted",
+        "label": "Muted Text",
+        "default": "#a3a195"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border Line Color",
+        "default": "rgba(255, 255, 255, 0.1)"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Heading Font",
+        "default": "inter_n9"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body Font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Layout & Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Store Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 50,
+        "max": 250,
+        "step": 10,
+        "default": 130,
+        "unit": "px",
+        "label": "Custom Logo Width"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_glow_effects",
+        "label": "Enable Neon Yellow Glow Effects",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart Type",
+        "options": [
+          { "value": "drawer", "label": "Drawer" },
+          { "value": "page", "label": "Page" }
+        ],
+        "default": "drawer"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      { "type": "text", "id": "social_facebook_link", "label": "Facebook" },
+      { "type": "text", "id": "social_instagram_link", "label": "Instagram" },
+      { "type": "text", "id": "social_youtube_link", "label": "YouTube" },
+      { "type": "text", "id": "social_twitter_link", "label": "X / Twitter" }
+    ]
+  }
+]

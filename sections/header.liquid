@@ -1,0 +1,109 @@
+{%- if section.settings.show_announcement -%}
+  <div class="announcement-bar">
+    {{ section.settings.announcement_text }}
+  </div>
+{%- endif -%}
+
+<header class="site-header">
+  <div class="page-width header-inner">
+    <!-- Brand Logo -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <a href="/" style="display: flex; align-items: center; gap: 10px;">
+        {%- if section.settings.logo != blank -%}
+          <img src="{{ section.settings.logo | image_url: width: section.settings.logo_width }}" alt="{{ shop.name }}" width="{{ section.settings.logo_width }}">
+        {%- else -%}
+          <div style="width: 38px; height: 38px; border-radius: 10px; background: var(--color-primary); display: flex; align-items: center; justify-content: center; color: #12110c;">
+            <span class="material-symbols-outlined font-black" style="font-size: 24px;">bolt</span>
+          </div>
+          <span style="font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; color: #fff;">
+            {{ shop.name | default: 'ELECTRO' }}
+          </span>
+        {%- endif -%}
+      </a>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="hidden md:flex">
+      <ul class="header-nav">
+        {%- if section.settings.menu != blank -%}
+          {%- for link in section.settings.menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        {%- else -%}
+          <li><a href="/collections/all">Products</a></li>
+          <li><a href="#specs">Specs</a></li>
+          <li><a href="#comparison">Tech</a></li>
+          <li><a href="#compatibility">Compatibility</a></li>
+          <li><a href="#faq">Support</a></li>
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    <!-- Header Actions (Cart, CTA) -->
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <button type="button" data-open-cart style="background: none; border: none; color: #fff; cursor: pointer; position: relative; display: flex; align-items: center;" aria-label="Cart">
+        <span class="material-symbols-outlined" style="font-size: 26px;">shopping_cart</span>
+        <span style="position: absolute; top: -6px; right: -8px; background: var(--color-primary); color: #12110c; font-size: 10px; font-weight: 900; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+          {{ cart.item_count | default: 1 }}
+        </span>
+      </button>
+
+      {%- if section.settings.cta_text != blank -%}
+        <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="btn-primary" style="padding: 10px 20px; font-size: 12px;">
+          {{ section.settings.cta_text }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Announcement Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "⚡ FREE WORLDWIDE EXPRESS SHIPPING ON ORDERS OVER $75 • 2-YEAR WARRANTY"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 250,
+      "step": 10,
+      "default": 130,
+      "unit": "px",
+      "label": "Logo Width"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Main Menu"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Header Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Header Button Link"
+    }
+  ]
+}
+{% endschema %}

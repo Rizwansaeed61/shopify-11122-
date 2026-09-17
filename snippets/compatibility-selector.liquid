@@ -1,0 +1,57 @@
+{%- comment -%}
+  Renders vehicle compatibility dropdowns
+  Usage:
+  {% render 'compatibility-selector' %}
+{%- endcomment -%}
+
+<div class="compatibility-box">
+  <div style="display: flex; flex-direction: column; gap: 8px;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">directions_car</span>
+      <h3 style="font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">
+        CHECK VEHICLE COMPATIBILITY
+      </h3>
+    </div>
+    <p style="font-size: 13px; color: var(--color-text-muted);">
+      {{ 'products.product.universal_fit' | t }}
+    </p>
+  </div>
+
+  <form class="compatibility-form">
+    <select class="compatibility-select" aria-label="Select Year">
+      <option value="2025">2025</option>
+      <option value="2024" selected>2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+    </select>
+
+    <select class="compatibility-select" aria-label="Select Make">
+      <option value="Toyota" selected>Toyota</option>
+      <option value="Honda">Honda</option>
+      <option value="Ford">Ford</option>
+      <option value="Chevrolet">Chevrolet</option>
+      <option value="Hyundai">Hyundai</option>
+      <option value="BMW">BMW</option>
+      <option value="Audi">Audi</option>
+    </select>
+
+    <select class="compatibility-select" aria-label="Select Model">
+      <option value="Camry" selected>Camry</option>
+      <option value="Corolla">Corolla</option>
+      <option value="Civic">Civic</option>
+      <option value="Accord">Accord</option>
+      <option value="F-150">F-150</option>
+      <option value="Silverado">Silverado</option>
+      <option value="Tucson">Tucson</option>
+    </select>
+
+    <button type="button" class="btn-primary" style="padding: 14px 28px;">
+      <span>{{ 'products.product.check_fitment' | t }}</span>
+    </button>
+  </form>
+
+  <div class="compatibility-result" style="display: none;"></div>
+</div>

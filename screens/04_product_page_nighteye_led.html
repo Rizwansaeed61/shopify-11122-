@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ELECTRO NIGHTEYE LED | High-Performance Lighting</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700;900&amp;family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#c6c6c7",
+                    "on-surface-variant": "#cfc6ab",
+                    "on-tertiary-container": "#006b71",
+                    "on-tertiary-fixed": "#002022",
+                    "primary": "#fff7e6",
+                    "inverse-surface": "#eae2cf",
+                    "surface-container": "#231f14",
+                    "surface-dim": "#161308",
+                    "on-secondary-fixed": "#1a1c1c",
+                    "surface-glass": "rgba(255, 255, 255, 0.05)",
+                    "outline": "#989077",
+                    "tertiary-fixed-dim": "#00dbe7",
+                    "primary-fixed": "#ffe165",
+                    "secondary-container": "#454747",
+                    "surface-container-highest": "#383528",
+                    "on-secondary-container": "#b4b5b5",
+                    "on-surface": "#eae2cf",
+                    "error": "#ffb4ab",
+                    "border-muted": "rgba(255, 255, 255, 0.1)",
+                    "on-tertiary": "#00363a",
+                    "surface-container-lowest": "#110e05",
+                    "surface-tint": "#e7c400",
+                    "surface-bright": "#3d392c",
+                    "error-container": "#93000a",
+                    "primary-container": "#ffd900",
+                    "surface-variant": "#383528",
+                    "on-background": "#eae2cf",
+                    "surface": "#161308",
+                    "on-error-container": "#ffdad6",
+                    "background-dark": "#0a0a0a",
+                    "secondary": "#c6c6c7",
+                    "on-primary": "#3a3000",
+                    "tertiary-fixed": "#74f5ff",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#343024",
+                    "tertiary-container": "#0af2ff",
+                    "tertiary": "#e1fdff",
+                    "primary-fixed-dim": "#e7c400",
+                    "glow-yellow": "rgba(255, 217, 0, 0.4)",
+                    "outline-variant": "#4c4732",
+                    "on-primary-fixed-variant": "#544600",
+                    "surface-container-high": "#2d2a1e",
+                    "on-tertiary-fixed-variant": "#004f54",
+                    "surface-container-low": "#1f1b10",
+                    "on-secondary-fixed-variant": "#454747",
+                    "on-primary-fixed": "#221b00",
+                    "background": "#161308",
+                    "on-primary-container": "#715f00",
+                    "inverse-primary": "#6f5d00",
+                    "on-secondary": "#2f3131",
+                    "secondary-fixed": "#e2e2e2"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-desktop": "10rem",
+                    "element-gap": "1rem",
+                    "section-gap": "5rem",
+                    "container-padding-mobile": "1.5rem",
+                    "container-padding-tablet": "5rem"
+            },
+            "fontFamily": {
+                    "display-xl": ["Oswald"],
+                    "label-bold": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Oswald"],
+                    "display-xl-mobile": ["Oswald"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "display-xl": ["96px", {"lineHeight": "0.9", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-bold": ["14px", {"letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["20px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-xl-mobile": ["48px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"letterSpacing": "0.05em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(255, 217, 0, 0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #161308; }
+        ::-webkit-scrollbar-thumb { background: #ffd900; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface-glass border-b border-border-muted shadow-lg h-20 flex justify-between items-center px-container-padding-desktop">
+<div class="font-display-xl text-headline-lg font-black text-primary drop-shadow-[0_0_10px_rgba(255,217,0,0.6)] flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+            ELECTRO
+        </div>
+<div class="hidden md:flex gap-8">
+<a class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SHOP</a>
+<a class="font-label-bold text-label-bold uppercase tracking-widest text-primary font-bold border-b-2 border-primary pb-1" href="#">PERFORMANCE</a>
+<a class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">MEDIA</a>
+<a class="font-label-bold text-label-bold uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">SUPPORT</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">search</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full font-label-bold text-label-bold hover:scale-105 transition-transform duration-200 active:scale-95 shadow-[0_0_15px_rgba(255,217,0,0.3)]">GET NIGHTEYE</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="pt-32 pb-section-gap px-container-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<!-- Left: Gallery -->
+<div class="relative group">
+<div class="aspect-square glass-card rounded-lg overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A macro studio photograph of the Electro NightEye LED bulb, showcasing its precision-machined aluminum body and yellow accents. The lighting is cinematic with high-contrast shadows and a vibrant yellow glow emitting from the LED chips. The background is a deep, industrial black with subtle lens flares highlighting the technical details. Professional automotive product photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuSI1P8iQK0I6r1cFbSNk6rDeeP7R_1FNIWJuJLfNCa04ZOPYZSZol-S9LPA1OahmRkCdrtPEDSScFhjqFwwSIVaoT-dwsPMhd-RxQpkjyYu7oOmrfDk5_GZjWFFLfEMo9_fTR4ApZ5k4eaO6XsxEi1Lvzfft8bYZQHukRN4BatILWvpb-3X9nApI5_LQG4XKIrQO8xEGsEXyIQ0h6XPLqboSpyKyD8eDiohzP3-I3mjNTsJ2mYt0K4zIWQJYTR3ese2ag_Df435IJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+</div>
+<div class="grid grid-cols-4 gap-4 mt-6">
+<div class="aspect-square glass-card rounded-md border-primary-container/30 overflow-hidden cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A close-up view of the Electro NightEye LED bulb's internal cooling fan, showing the aerodynamic blades and copper heat sinks. The image uses a cool blue and sharp yellow color palette with industrial textures. High-detail technical photography with a shallow depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfA-94Xb54tH0ZZkPHVorTBGE55Xc9ou_W1HN9N82sdQN4tccenOH3oh_Q0CZ8gHhIigXkGcW-ubyZdVBwoMq2YQQfAoZfVHl64K9PTeHXcnonwYApGkY7pKm-lRURJEBAJ2ODgjduioZm7YX1Ktll7Q7g5aM16dgRN0tIcNzA3ZklD6Ocl0VjB1CHWFsQ1H-cdjNgnlWJUqNx_UHreLJXbJLt9xo6bRU2JSXPk19ixMmvlLNNnIKW_TJvplhMimxF5BDgzAur3RdP"/>
+</div>
+<div class="aspect-square glass-card rounded-md overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A side profile of the Electro NightEye LED headlight bulb mounted in a modern car housing, projecting a crisp white beam into a dark night environment. High contrast, low-key lighting, emphasizing the sharp cutoff line of the beam pattern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD695EPnbuN4swwHjw-kia7IrLl19vlD5rL7mvAw2tFfbHqOJiyzjLhiRSSEkHVjlCrvQ8SrPQ9GtcfbWk3baLRu8fq6iH9Xh9g8qmo25_MB9gwbPwnluxFqem0xsCMUna7Pa1D6azoZinwJK6BNifl-R85uK87t7wcR7VK1MmKT4eCtQK-NCBZ1iDIzevQmoXMMjiGwAiGSds3N4BkgF3UrGQ-QV34K_gA8wxdaVxPHtxx72Bwi344XIUw6qpoyV_B5_wb066wB7Iy"/>
+</div>
+<div class="aspect-square glass-card rounded-md overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="A set of two Electro NightEye LED bulbs packaged in a premium, high-tech black box with yellow embossed branding. The image is sleek and luxurious, reflecting a premium automotive performance brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiY2AiV-QIGcy0dDhhr2fivcvJM-neaEYOJdqAsrIKnkVABg7Hzh3x0v066-AqT2uf4aY31nTg5VBK6y-if5u3chv6PXND1DczgYQiXMq3-8BgPDHZxk_WxlCckb6GHGQG5f0iMMGp8zDFh9hKJk0pwLoufDoe9J7wKxyQRB_5XH4bwD0DOjAjl0T6McNfn-7J1j5K546zITHjsZW9vlRsZK-HwdgYXxznqT8BBkl_eIdvcJ8YHHw-vPD3vBN9jQHp30woEQid_f1D"/>
+</div>
+<div class="aspect-square glass-card rounded-md overflow-hidden cursor-pointer opacity-60 hover:opacity-100 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="An infrared thermal camera view of the Electro NightEye bulb in operation, demonstrating efficient heat dissipation through its turbo fan system. Vibrant colors showing temperature gradients in a high-tech laboratory setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW7Q-MMh5LzkRvngxNm6RBGLB23ZLw6EUVDkmgjSQcjk8l_l4n5KY3xO8JUONSbfKMNTiiNyYVnQyd5mVZRq-r_Tc57rl8NcDCmszKWwaX73V9pYtEbdS-e7JIV4jj6IempRTCjDPjhaWhACV2KmOLdu2IO2J69IwLjhYcQCvyPcnKzngC3tedbvWpxdDPIH7mKe-e7dGah5kp2KakSaIKgwQsn14ZEqS_TaVXuH6FjYGqr6s7cZcfPKlqVL1Tmtl17lnXyhTOLUVK"/>
+</div>
+</div>
+</div>
+<!-- Right: Product Info -->
+<div class="flex flex-col gap-6">
+<div class="space-y-2">
+<span class="text-primary-container font-label-bold tracking-[0.3em] uppercase">Performance Engineering</span>
+<h1 class="font-display-xl text-display-xl uppercase leading-none">ELECTRO NIGHTEYE LED</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-4xl font-display-xl text-primary">$89.00</span>
+<span class="px-3 py-1 bg-primary-container/10 text-primary-container border border-primary-container/30 rounded-full text-xs font-label-bold">IN STOCK</span>
+</div>
+<p class="font-body-lg text-on-surface-variant max-w-xl">
+                    Engineered specifically for the unpredictable chaos of Indian road conditions. NightEye delivers a 300% brighter beam than standard halogens, cutting through dense fog and heavy monsoon rains with surgical precision.
+                </p>
+<div class="flex flex-col gap-4 mt-4">
+<button class="bg-primary-container text-on-primary-container py-5 rounded-full font-label-bold text-lg uppercase tracking-widest hover:scale-[1.02] transition-all glow-effect flex items-center justify-center gap-3 active:scale-95">
+<span class="material-symbols-outlined">shopping_cart</span>
+                        ADD TO CART
+                    </button>
+<div class="flex items-center gap-6 text-on-surface-variant font-label-bold text-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">verified_user</span>
+                            1-YEAR WARRANTY
+                        </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">local_shipping</span>
+                            FAST DISPATCH
+                        </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Specs Bar -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 border-y border-border-muted py-10">
+<div class="flex items-center gap-4 group cursor-default">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<div>
+<h3 class="font-headline-lg uppercase text-primary">15,000 Lumens</h3>
+<p class="text-on-surface-variant text-sm">Ultra-High Intensity Output</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-default">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl">water_drop</span>
+</div>
+<div>
+<h3 class="font-headline-lg uppercase text-primary">IP68 Waterproof</h3>
+<p class="text-on-surface-variant text-sm">Monsoon-Ready Submersible</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-default">
+<div class="w-16 h-16 rounded-full glass-card flex items-center justify-center text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">timer</span>
+</div>
+<div>
+<h3 class="font-headline-lg uppercase text-primary">50,000+ Hrs</h3>
+<p class="text-on-surface-variant text-sm">Extended Performance Life</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee -->
+<div class="bg-primary-container py-4 marquee-container">
+<div class="marquee-content flex gap-20">
+<span class="text-on-primary-container font-label-bold text-lg tracking-[0.4em] uppercase">Precision Engineering • Racing Grade • Night Vision Enhanced • Electro Performance • Precision Engineering • Racing Grade • Night Vision Enhanced • Electro Performance •</span>
+<span class="text-on-primary-container font-label-bold text-lg tracking-[0.4em] uppercase">Precision Engineering • Racing Grade • Night Vision Enhanced • Electro Performance • Precision Engineering • Racing Grade • Night Vision Enhanced • Electro Performance •</span>
+</div>
+</div>
+<!-- Technical Breakdown -->
+<section class="py-section-gap px-container-padding-desktop bg-surface-container-lowest">
+<div class="text-center mb-20">
+<h2 class="font-display-xl text-headline-lg uppercase tracking-widest text-primary-container mb-4">ENGINEERED FOR EXTREMES</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">A deep-dive into the thermal management and structural integrity of the NightEye series.</p>
+</div>
+<div class="relative max-w-6xl mx-auto">
+<div class="aspect-[16/9] w-full glass-card rounded-2xl overflow-hidden border-primary-container/20 p-8 flex items-center justify-center">
+<img class="max-h-[80%] object-contain" data-alt="An exploded 3D technical rendering of the Electro NightEye LED bulb components, showing the LED chip, copper PCB, aluminum heat sink, and dual-turbo cooling fan suspended in space with callout lines. The style is technical and sleek, with glowing yellow highlights and a blueprint-like background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYqt2m3tFC9FIeQ0jA1eMUCzPx_UFtNa25uh0GsI-qdkJcjIeGN7WWuhQEDw1kpKewU4izRi-kHG5Lb09E41F3jHd5AjRQVEMAVaSNshWfO-3t7_MSmNR-bw8TSponcVYCY3heS3Ik3HrOmxwxCc_MrlITDUrgVJbZKmC8Mo3HtKlm-H0BUOcmnVlIKUX5INspRJ3MfXZHHIyrkiSoJ6gHus1pg8DcWy0S5dKTzO3ntW5hbxkkjnddM_Td2NF3FJ-38kRZ8mfk2KbB"/>
+<!-- Callouts -->
+<div class="absolute top-[20%] left-[15%] flex flex-col items-end">
+<span class="font-label-bold text-primary-container text-sm">DUAL TURBO FAN</span>
+<div class="w-24 h-px bg-primary-container/50 -mr-2 mt-2"></div>
+<p class="text-[10px] text-on-surface-variant mt-2 text-right">12,000 RPM Silent Cooling</p>
+</div>
+<div class="absolute bottom-[25%] right-[10%] flex flex-col items-start">
+<span class="font-label-bold text-primary-container text-sm">COPPER PCB</span>
+<div class="w-32 h-px bg-primary-container/50 -ml-2 mt-2"></div>
+<p class="text-[10px] text-on-surface-variant mt-2">Instant Thermal Dissipation</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="py-section-gap px-container-padding-desktop">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="font-display-xl text-headline-lg uppercase text-primary">REAL WORLD IMPACT</h2>
+<p class="text-on-surface-variant font-body-md mt-2">Verified results from our community of night drivers.</p>
+</div>
+<div class="glass-card px-6 py-4 rounded-lg flex items-center gap-4">
+<div class="text-primary-container text-3xl font-display-xl">14-DAY</div>
+<div class="text-[10px] font-label-bold uppercase text-on-surface-variant">Risk-Free<br/>Guarantee</div>
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group">
+<div class="aspect-video glass-card rounded-lg overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A split-screen comparison image showing a dark highway lit by dim yellow halogen bulbs on the left and bright, sharp white LED light from Electro NightEye on the right. The LED side shows much greater detail of the road surface and distant hazards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL417VBb9gVug8uaXYQaaj9kV7o0KgRSLECt1V0PHXbo--Bk3L2RSJq0ag1SOeppden7PD6npvAPLNc5Qpu-TACKFjWnSfRtC_4RGqJVCkczaokK0AFakDx9-9FCPKElX19BgbWkylvi-ujbqA4jFoN0aCZNFE03uSJtlOzBkuVNZdjW8xIrxnLT-HzGNI_S3LoQTVHPWdjadqoIADvWWRAb6B8KQwnctIiQv5XWYLxqxbssBhVdDO82cxve_1XyaXokqrMtKeaE6Y"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/80 text-[10px] font-bold text-white uppercase">Before vs After</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs font-label-bold text-on-surface-variant">Arjun K. - SUV Enthusiast</span>
+</div>
+</div>
+<div class="group">
+<div class="aspect-video glass-card rounded-lg overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A photo taken from a driver's perspective on a rainy night, showing how the Electro NightEye LED bulbs pierce through the rain and reflect clearly off road markings. The scene is atmospheric and moody, highlighting safety in bad weather." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuRHPsdIBuDt5jEWQX1bJLvlAyaBKI21rttlJpHIZ71G7smTSEexTKUl1fwFbqeETiR2UJsfNManL0mt68a4y16y3oc-yIMFDsV3fb72Q0X_dt8bCSFVpu_o3f8EYLj1kdkhjSpP-UIETzBdHMX3GHv_bpAWDHsRaEavDwz9gnghnrEws_LqWIQB6SpiVLHun5yCw7DV9DO9cebUK7P2tm48XjMTwqld0PiHXdi-8P-TZ7cre3UWfQqNiNesJb5-_WNMVBHyKuEkqt"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/80 text-[10px] font-bold text-white uppercase">Monsoon Test</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs font-label-bold text-on-surface-variant">Priya M. - Daily Commuter</span>
+</div>
+</div>
+<div class="group">
+<div class="aspect-video glass-card rounded-lg overflow-hidden relative mb-4">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A creative night shot of a motorcycle with Electro NightEye LEDs installed, parked on a city street at night. The light beam creates a beautiful pattern on the pavement, reflecting the high-performance and technical look of the product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZOdrZxBL96kbLwyRwGKXUnN9PXFSnglhQL9UbU5ZGbwisJZcIp-5Y_8--yOhoqp5jTwKso6Sy6ANHneGp5avqKkF2k73KmZVBSC6BvQCzqcA34Jt_SpgGFtseK3oaU4S_2ST1VVoCvgEJXMQEVAp9_KT57ybiZP43V2Fzoe4VNOExTNeVDWIubkRYmjzDlG0BiOHFhqzeHyfYMJ9nXfIaumdtknCSCUJtbSFIiEvlSmnf6G26JlnNe3UBj3NgypcPcEieXzy86DWh"/>
+<div class="absolute top-2 left-2 px-2 py-1 bg-black/80 text-[10px] font-bold text-white uppercase">Aesthetic Upgrade</div>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-xs font-label-bold text-on-surface-variant">Rahul S. - Biker Customist</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparison Table -->
+<section class="py-section-gap px-container-padding-desktop">
+<div class="max-w-4xl mx-auto glass-card rounded-3xl overflow-hidden border-primary-container/10">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-primary-container text-on-primary-container">
+<th class="py-6 px-8 font-display-xl text-xl uppercase tracking-wider">Feature</th>
+<th class="py-6 px-8 font-display-xl text-xl uppercase tracking-wider text-center">Electro NightEye</th>
+<th class="py-6 px-8 font-display-xl text-xl uppercase tracking-wider text-center opacity-70">Std. Halogen</th>
+</tr>
+</thead>
+<tbody class="text-on-surface-variant">
+<tr class="border-b border-border-muted hover:bg-white/5 transition-colors">
+<td class="py-6 px-8 font-label-bold text-white">VISIBILITY DISTANCE</td>
+<td class="py-6 px-8 text-center text-primary-container font-bold">Up to 300 Meters</td>
+<td class="py-6 px-8 text-center opacity-50">~60 Meters</td>
+</tr>
+<tr class="border-b border-border-muted hover:bg-white/5 transition-colors">
+<td class="py-6 px-8 font-label-bold text-white">LIFESPAN</td>
+<td class="py-6 px-8 text-center text-primary-container font-bold">50,000 Hours</td>
+<td class="py-6 px-8 text-center opacity-50">500 Hours</td>
+</tr>
+<tr class="border-b border-border-muted hover:bg-white/5 transition-colors">
+<td class="py-6 px-8 font-label-bold text-white">HEAT MANAGEMENT</td>
+<td class="py-6 px-8 text-center text-primary-container font-bold">Dual-Active Fan</td>
+<td class="py-6 px-8 text-center opacity-50">Passive Radiation</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="py-6 px-8 font-label-bold text-white">POWER EFFICIENCY</td>
+<td class="py-6 px-8 text-center text-primary-container font-bold">High (35W)</td>
+<td class="py-6 px-8 text-center opacity-50">Low (55W+)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-border-muted py-section-gap px-container-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-element-gap w-full max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="font-display-xl text-headline-lg text-primary mb-6">ELECTRO</div>
+<p class="text-on-surface-variant font-body-md leading-relaxed opacity-80">
+                    Precision engineering for the modern performance automotive market. Leading the night with HID and LED innovation.
+                </p>
+</div>
+<div>
+<h4 class="font-label-bold text-primary mb-6 uppercase tracking-widest">PRODUCT</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">WARRANTY</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">INSTALLATION GUIDES</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">DEALER LOCATOR</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-primary mb-6 uppercase tracking-widest">COMPANY</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">ABOUT US</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">CONTACT</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-all underline decoration-primary decoration-2 underline-offset-4 font-body-md" href="#">PRIVACY POLICY</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-bold text-primary mb-6 uppercase tracking-widest">NEWSLETTER</h4>
+<div class="flex flex-col gap-4">
+<input class="bg-white/5 border border-white/10 rounded-full px-4 py-2 text-white placeholder:text-white/30 focus:outline-none focus:border-primary-container" placeholder="ENTER EMAIL" type="email"/>
+<button class="bg-primary-container text-on-primary-container rounded-full py-2 font-label-bold uppercase text-xs">SUBSCRIBE</button>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-10 border-t border-border-muted/50 text-center text-on-surface-variant text-sm font-body-md">
+            © 2024 ELECTRO PERFORMANCE ENGINEERING. ALL RIGHTS RESERVED.
+        </div>
+</footer>
+<script>
+        // Micro-interaction for gallery images
+        const thumbs = document.querySelectorAll('.aspect-square.glass-card');
+        const mainImg = document.querySelector('.aspect-square.glass-card.rounded-lg img');
+
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                const newSrc = thumb.querySelector('img').src;
+                const newAlt = thumb.querySelector('img').dataset.alt;
+                
+                // Add a simple fade animation if you wanted to be fancy, 
+                // but standard swap is fast for performance
+                mainImg.src = newSrc;
+                mainImg.dataset.alt = newAlt;
+                
+                thumbs.forEach(t => t.classList.add('opacity-60'));
+                thumb.classList.remove('opacity-60');
+                thumb.classList.add('opacity-100');
+            });
+        });
+    </script>
+</body></html>

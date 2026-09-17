@@ -1,0 +1,213 @@
+<section class="product-main" style="padding: 60px 0 80px; background: #12110c;">
+  <div class="page-width">
+    
+    <div class="product-grid">
+      
+      <!-- Left Column: Media Gallery -->
+      <div class="product-gallery-column">
+        {% render 'product-media-gallery', product: product %}
+      </div>
+
+      <!-- Right Column: Product Details & Blocks -->
+      <div class="product-info-column" style="display: flex; flex-direction: column; gap: 24px;">
+        
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+
+            {%- when 'title' -%}
+              <div {{ block.shopify_attributes }}>
+                <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.25em; display: block; margin-bottom: 8px;">
+                  {{ block.settings.eyebrow | default: 'PERFORMANCE ENGINEERING' }}
+                </span>
+                <h1 style="font-size: clamp(28px, 4vw, 44px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.1;">
+                  {{ product.title | default: 'ELECTRO NIGHTEYE LED' }}
+                </h1>
+              </div>
+
+            {%- when 'price' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'price', product: product %}
+              </div>
+
+            {%- when 'description' -%}
+              <div {{ block.shopify_attributes }} style="font-size: 15px; color: var(--color-text-muted); line-height: 1.7;">
+                {{ product.description | default: 'Engineered specifically for unpredictable highway conditions and dense night fog. Electro NightEye delivers a 300% brighter, razor-sharp cutoff beam than standard halogens, slicing through monsoons and pitch darkness with surgical precision.' }}
+              </div>
+
+            {%- when 'variant_picker' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'product-variant-picker', product: product %}
+              </div>
+
+            {%- when 'buy_buttons' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'buy-buttons', product: product %}
+              </div>
+
+            {%- when 'specs_bar' -%}
+              <div class="key-specs-bar" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; padding: 20px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); margin: 12px 0;" {{ block.shopify_attributes }}>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-primary);">wb_sunny</span>
+                  <div>
+                    <div style="font-size: 14px; font-weight: 800; color: #fff;">15,000 LM</div>
+                    <div style="font-size: 11px; color: var(--color-text-muted);">High Intensity</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-primary);">water_drop</span>
+                  <div>
+                    <div style="font-size: 14px; font-weight: 800; color: #fff;">IP68 Proof</div>
+                    <div style="font-size: 11px; color: var(--color-text-muted);">Submersible</div>
+                  </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <span class="material-symbols-outlined" style="font-size: 28px; color: var(--color-primary);">schedule</span>
+                  <div>
+                    <div style="font-size: 14px; font-weight: 800; color: #fff;">50,000+ Hrs</div>
+                    <div style="font-size: 11px; color: var(--color-text-muted);">Turbo Cooled</div>
+                  </div>
+                </div>
+              </div>
+
+            {%- when 'compatibility_finder' -%}
+              <div id="compatibility" {{ block.shopify_attributes }} style="margin: 16px 0;">
+                {% render 'compatibility-selector' %}
+              </div>
+
+            {%- when 'collapsible_tab' -%}
+              <div class="accordion-item" {{ block.shopify_attributes }}>
+                <div class="accordion-header">
+                  <div style="display: flex; align-items: center; gap: 10px;">
+                    <span class="material-symbols-outlined" style="font-size: 20px; color: var(--color-primary);">{{ block.settings.icon | default: 'info' }}</span>
+                    <span>{{ block.settings.heading }}</span>
+                  </div>
+                  <span class="material-symbols-outlined" style="font-size: 18px; color: var(--color-text-muted);">expand_more</span>
+                </div>
+                <div class="accordion-content">
+                  {{ block.settings.content }}
+                </div>
+              </div>
+
+          {%- endcase -%}
+        {%- endfor -%}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Product",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title & Eyebrow",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "PERFORMANCE ENGINEERING"
+        }
+      ]
+    },
+    {
+      "type": "price",
+      "name": "Price & Stock",
+      "limit": 1
+    },
+    {
+      "type": "description",
+      "name": "Description",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "Bulb Variant Selector",
+      "limit": 1
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy Buttons",
+      "limit": 1
+    },
+    {
+      "type": "specs_bar",
+      "name": "Key Specs Bar",
+      "limit": 1
+    },
+    {
+      "type": "compatibility_finder",
+      "name": "Vehicle Compatibility Widget",
+      "limit": 1
+    },
+    {
+      "type": "collapsible_tab",
+      "name": "Collapsible Accordion Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "tune"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Tab Heading",
+          "default": "Technical Specifications"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Tab Content",
+          "default": "<p><strong>Voltage:</strong> 9V - 32V DC<br><strong>Power:</strong> 110W per pair<br><strong>Color Temperature:</strong> 6500K Diamond White<br><strong>Operating Temp:</strong> -40°C to +85°C<br><strong>Cooling:</strong> 12,000 RPM Dual-Ball Turbo Fan</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Product",
+      "blocks": [
+        { "type": "title" },
+        { "type": "price" },
+        { "type": "description" },
+        { "type": "variant_picker" },
+        { "type": "buy_buttons" },
+        { "type": "specs_bar" },
+        { "type": "compatibility_finder" },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "tune",
+            "heading": "Technical Specifications",
+            "content": "<p><strong>Operating Voltage:</strong> 9-32V DC<br><strong>Lumen Output:</strong> 15,000 Lumens / Pair<br><strong>Color Temp:</strong> 6500K Crisp Cool White<br><strong>Waterproof Rating:</strong> IP68 Submersible<br><strong>Material:</strong> Aircraft Grade 6063 Aluminum</p>"
+          }
+        },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "build",
+            "heading": "Plug & Play Installation Guide",
+            "content": "<p>1. Ensure your vehicle ignition and lights are turned off.<br>2. Remove the factory dust cover and unplug old halogen bulb.<br>3. Insert Electro NightEye LED into the socket collar and twist to lock.<br>4. Re-attach dust seal and plug in the OEM connector. Zero splicing required!</p>"
+          }
+        },
+        {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "local_shipping",
+            "heading": "Shipping & 2-Year Warranty",
+            "content": "<p>Every pair comes with our <strong>2-Year No-Hassle Direct Replacement Guarantee</strong>. All orders ship within 24 hours via tracked priority courier service.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

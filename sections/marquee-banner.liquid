@@ -1,0 +1,25 @@
+<div class="marquee-container" style="border-top: 1px solid rgba(0,0,0,0.1); border-bottom: 1px solid rgba(0,0,0,0.1);">
+  <div class="marquee-content">
+    <span>{{ section.settings.text | default: 'Precision Engineering • Racing Grade Optics • Night Vision Enhanced • 15,000 Lumens • IP68 Waterproof • Canbus Error Free •' }}</span>
+    <span>{{ section.settings.text | default: 'Precision Engineering • Racing Grade Optics • Night Vision Enhanced • 15,000 Lumens • IP68 Waterproof • Canbus Error Free •' }}</span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee Banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Scrolling Text",
+      "default": "Precision Engineering • Racing Grade Optics • Night Vision Enhanced • 15,000 Lumens • IP68 Waterproof • Canbus Error Free •"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Banner"
+    }
+  ]
+}
+{% endschema %}

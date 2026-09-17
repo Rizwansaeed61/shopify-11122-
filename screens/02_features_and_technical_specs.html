@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffd900",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#181710",
+                        "card-dark": "#23200f",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>.noise-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBsMqNCUW14JK_hPLO34QcGH9uMCDg3e_V5i2eOL_JUUDJMGcbagFLMx650pu30TsvyWocJV8hB_kyGMtF5IvUoMaJrFIncu9rgV4Bzk4pIFRdlptD6ZUCFfIOZszwmsj-99opyV0XR7wcxJaLPSU4YcIFa113LrmMwCdRRLYUFbpPSc8YVUfavb82yiQD2YM5mBWiwBGsjqCaOz4fxOYbL-7F5S6hYA2tsTWdmdaTTWxnx_9MYLAI_0KWQL9IiLjveRTBmWyxq45Fo);
+    background-color: #23200f
+    }
+.glow-yellow {
+    box-shadow: 0 0 20px rgba(255, 217, 0, 0.2)
+    }</style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white">
+<!-- Top Navigation Bar -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/10 px-10 py-5 sticky top-0 bg-background-dark z-50">
+<div class="flex items-center gap-4 text-white">
+<div class="size-6 text-primary">
+<svg fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="text-white text-xl font-black uppercase tracking-tighter">Electro</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider" href="#">Products</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider" href="#">Specs</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider" href="#">Tech</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-bold uppercase tracking-wider" href="#">Support</a>
+</nav>
+<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-full h-11 px-6 bg-primary text-background-dark text-sm font-black uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-105 transition-transform">
+<span>Shop Now</span>
+</button>
+</div>
+</header>
+<main class="flex flex-col">
+<!-- Feature Spotlight Section: Own the Night -->
+<section class="noise-bg relative py-24 px-10 flex flex-col items-center">
+<div class="max-w-[1200px] w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="flex justify-center">
+<div class="relative w-full max-w-md aspect-square rounded-xl bg-center bg-no-repeat bg-contain" data-alt="Aggressive automotive mascot character with glowing yellow eyes" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N");'>
+<div class="absolute -inset-4 bg-primary/5 blur-3xl rounded-full -z-10"></div>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-6xl lg:text-8xl font-black leading-none tracking-tighter uppercase italic">
+                            Own the <span class="text-primary">Night</span>
+</h1>
+<p class="text-white/80 text-lg leading-relaxed max-w-lg">
+                            Dominate the darkness with industrial-grade precision. Our LED systems are engineered for the bold who refuse to let the sun dictate their journey.
+                        </p>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex items-center gap-4 group">
+<div class="size-12 flex items-center justify-center rounded-full bg-primary/10 border border-primary/30 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background-dark">bolt</span>
+</div>
+<div>
+<h3 class="text-white font-black uppercase tracking-wide">Extreme Brightness</h3>
+<p class="text-white/60 text-sm">Ultra-focused beam for maximum clarity.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="size-12 flex items-center justify-center rounded-full bg-primary/10 border border-primary/30 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background-dark">water_drop</span>
+</div>
+<div>
+<h3 class="text-white font-black uppercase tracking-wide">Storm Proof</h3>
+<p class="text-white/60 text-sm">IP68 certified for the harshest elements.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group">
+<div class="size-12 flex items-center justify-center rounded-full bg-primary/10 border border-primary/30 group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-background-dark">power</span>
+</div>
+<div>
+<h3 class="text-white font-black uppercase tracking-wide">Plug &amp; Play</h3>
+<p class="text-white/60 text-sm">Universal fit, tool-less installation.</p>
+</div>
+</div>
+</div>
+<button class="mt-4 flex min-w-[200px] w-fit cursor-pointer items-center justify-center rounded-full h-14 px-8 bg-primary text-background-dark text-lg font-black uppercase tracking-widest hover:bg-white transition-colors">
+<span>Get Started</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section Header -->
+<section class="bg-black py-16 text-center border-t border-white/5">
+<h2 class="text-white text-3xl lg:text-5xl font-black uppercase tracking-tight">Engineered for Extremes</h2>
+<div class="w-24 h-1 bg-primary mx-auto mt-6"></div>
+</section>
+<!-- Technical Specs Section -->
+<section class="bg-black relative py-32 overflow-hidden">
+<!-- Background Glow -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="max-w-[1200px] mx-auto px-10 relative">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+<!-- Left Column Specs -->
+<div class="flex flex-col gap-12 order-2 lg:order-1">
+<div class="flex flex-col gap-4 p-8 rounded-full border-2 border-primary/30 bg-card-dark/50 backdrop-blur-md glow-yellow items-end text-right">
+<span class="material-symbols-outlined text-primary text-4xl">flare</span>
+<div>
+<h3 class="text-primary text-2xl font-black italic uppercase leading-none">15,000 Lumens</h3>
+<p class="text-white/60 text-sm font-bold uppercase tracking-widest mt-1">Light Output</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-8 rounded-full border-2 border-white/10 bg-card-dark/50 backdrop-blur-md items-end text-right">
+<span class="material-symbols-outlined text-white text-4xl">tsunami</span>
+<div>
+<h3 class="text-white text-2xl font-black italic uppercase leading-none">IP68 Rated</h3>
+<p class="text-white/60 text-sm font-bold uppercase tracking-widest mt-1">Waterproof Shield</p>
+</div>
+</div>
+</div>
+<!-- Center Product Visual -->
+<div class="flex justify-center order-1 lg:order-2">
+<div class="relative w-full aspect-square max-w-sm flex items-center justify-center">
+<div class="w-full h-full bg-center bg-no-repeat bg-contain" data-alt="Technical 3D render of a high-performance automotive LED headlight bulb" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAOIHVMBtQwIblASeYBBM735DAyfZBpXLh06GlDHDXU1_h9M09DK9YzsEx7L7b_6sajoDWyRUkpHvdSi_nY8PLTYxFslCZ7Xc1ThyQD9en2TTUrBVInEq-BJxLptu3fTtEAwheEIoXFOvZsegEYmiZhraGloL10JOTP1HdVBKFh73qCHRVr96Gs99NxaSrWfbnlDhotwiQF9FNermYlCo1aBbsSeNrma4OOBUQd1Nwu1CeAjDtER-IPRY971ZdX_n5inavdRIg9k0QE");'>
+</div>
+<!-- Radial decorative circles -->
+<div class="absolute -inset-10 border border-primary/20 rounded-full animate-pulse"></div>
+<div class="absolute -inset-20 border border-white/5 rounded-full"></div>
+</div>
+</div>
+<!-- Right Column Specs -->
+<div class="flex flex-col gap-12 order-3 lg:order-3">
+<div class="flex flex-col gap-4 p-8 rounded-full border-2 border-white/10 bg-card-dark/50 backdrop-blur-md">
+<span class="material-symbols-outlined text-white text-4xl">schedule</span>
+<div>
+<h3 class="text-white text-2xl font-black italic uppercase leading-none">50,000+ Hrs</h3>
+<p class="text-white/60 text-sm font-bold uppercase tracking-widest mt-1">Expected Lifespan</p>
+</div>
+</div>
+<div class="flex flex-col gap-4 p-8 rounded-full border-2 border-white/10 bg-card-dark/50 backdrop-blur-md">
+<span class="material-symbols-outlined text-white text-4xl">ac_unit</span>
+<div>
+<h3 class="text-white text-2xl font-black italic uppercase leading-none">Active Cooling</h3>
+<p class="text-white/60 text-sm font-bold uppercase tracking-widest mt-1">Heat Management</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Banner -->
+<section class="bg-primary py-12 px-10 text-background-dark overflow-hidden relative">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<h2 class="text-4xl lg:text-5xl font-black italic uppercase tracking-tighter leading-none">Ready to lead the pack?</h2>
+<button class="bg-background-dark text-primary px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-background-dark transition-colors">
+                    Build Your Kit
+                </button>
+</div>
+<!-- Decorative text background -->
+<div class="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+<span class="text-[12rem] font-black uppercase italic whitespace-nowrap -rotate-2">PERFORMANCE INDUSTRIAL</span>
+</div>
+</section>
+</main>
+<footer class="bg-background-dark py-12 px-10 border-t border-white/5">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-2">
+<div class="size-4 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48">
+<path d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"></path>
+</svg>
+</div>
+<span class="text-white font-black uppercase tracking-tighter">Electro</span>
+<span class="text-white/40 text-xs ml-4">© 2024 ELECTRO PERFORMANCE LIGHTING</span>
+</div>
+<div class="flex gap-8 text-white/60 text-sm font-bold uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="hover:text-primary transition-colors" href="#">YouTube</a>
+<a class="hover:text-primary transition-colors" href="#">Warranty</a>
+</div>
+</div>
+</footer>
+</body></html>

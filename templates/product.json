@@ -1,0 +1,291 @@
+{
+  "sections": {
+    "main_product": {
+      "type": "main-product",
+      "blocks": {
+        "title_block": {
+          "type": "title",
+          "settings": {
+            "eyebrow": "PERFORMANCE RACING OPTICS"
+          }
+        },
+        "price_block": {
+          "type": "price",
+          "settings": {}
+        },
+        "desc_block": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_block": {
+          "type": "variant_picker",
+          "settings": {}
+        },
+        "buy_block": {
+          "type": "buy_buttons",
+          "settings": {}
+        },
+        "specs_bar_block": {
+          "type": "specs_bar",
+          "settings": {}
+        },
+        "compat_block": {
+          "type": "compatibility_finder",
+          "settings": {}
+        },
+        "tab_1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "tune",
+            "heading": "Technical Specifications",
+            "content": "<p><strong>Operating Voltage:</strong> 9-32V DC<br><strong>Lumen Output:</strong> 15,000 Lumens / Pair<br><strong>Color Temp:</strong> 6500K Crisp Cool White<br><strong>Waterproof Rating:</strong> IP68 Submersible<br><strong>Housing Material:</strong> Aircraft Grade 6063 Aluminum<br><strong>Cooling:</strong> 12,000 RPM Silent Turbo Fan</p>"
+          }
+        },
+        "tab_2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "build",
+            "heading": "Plug & Play Installation Guide",
+            "content": "<p>1. Ensure your vehicle ignition and lights are turned off.<br>2. Remove the factory dust cover and unplug old halogen bulb.<br>3. Insert Electro NightEye LED into the socket collar and twist to lock.<br>4. Re-attach dust seal and plug in the OEM connector. Zero splicing required!</p>"
+          }
+        },
+        "tab_3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "icon": "local_shipping",
+            "heading": "Shipping & 2-Year Warranty",
+            "content": "<p>Every pair comes with our <strong>2-Year No-Hassle Direct Replacement Guarantee</strong>. All orders ship within 24 hours via tracked priority courier service.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "title_block",
+        "price_block",
+        "desc_block",
+        "variant_block",
+        "buy_block",
+        "specs_bar_block",
+        "compat_block",
+        "tab_1",
+        "tab_2",
+        "tab_3"
+      ],
+      "settings": {}
+    },
+    "marquee": {
+      "type": "marquee-banner",
+      "settings": {
+        "text": "Precision Engineering • Racing Grade Optics • Night Vision Enhanced • 15,000 Lumens • IP68 Waterproof • Canbus Error Free •"
+      }
+    },
+    "specs_section": {
+      "type": "technical-specs",
+      "blocks": {
+        "s1": {
+          "type": "spec",
+          "settings": {
+            "icon": "wb_sunny",
+            "title": "15,000 Lumens",
+            "text": "Piercing automotive CSP chips deliver razor-sharp cutoff lines with zero stray glare."
+          }
+        },
+        "s2": {
+          "type": "spec",
+          "settings": {
+            "icon": "water_drop",
+            "title": "IP68 Submersible",
+            "text": "Triple silicone sealed housing completely protects against water submersion and sand."
+          }
+        },
+        "s3": {
+          "type": "spec",
+          "settings": {
+            "icon": "schedule",
+            "title": "50,000+ Hours",
+            "text": "12,000 RPM silent hydraulic turbo fan pulls heat rapidly off the dual copper substrate."
+          }
+        },
+        "s4": {
+          "type": "spec",
+          "settings": {
+            "icon": "memory",
+            "title": "Intelligent Canbus",
+            "text": "Integrated decoding driver prevents flicker, dashboard bulb-out warnings, and ECU errors."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4"
+      ],
+      "settings": {
+        "eyebrow": "LAB TESTED BENCHMARKS",
+        "title": "ENGINEERED FOR <span style='color: #ffd900;'>EXTREMES</span>",
+        "subtitle": "Every component is precision-machined from aircraft-grade aluminum to deliver consistent lumen output under heavy thermal loads."
+      }
+    },
+    "comparison": {
+      "type": "comparison-table",
+      "blocks": {
+        "r1": {
+          "type": "row",
+          "settings": {
+            "icon": "wb_sunny",
+            "metric": "Lumen Output",
+            "electro_val": "15,000 LM (300% Brighter)",
+            "halogen_val": "1,200 LM (Dim Yellow)",
+            "generic_val": "6,000 LM (Exaggerated)"
+          }
+        },
+        "r2": {
+          "type": "row",
+          "settings": {
+            "icon": "schedule",
+            "metric": "Operational Lifespan",
+            "electro_val": "50,000+ Hours",
+            "halogen_val": "500 - 1,000 Hours",
+            "generic_val": "8,000 Hours"
+          }
+        },
+        "r3": {
+          "type": "row",
+          "settings": {
+            "icon": "water_drop",
+            "metric": "Water & Dust Proofing",
+            "electro_val": "IP68 Submersible",
+            "halogen_val": "Unsealed / Open Back",
+            "generic_val": "IP65 Splashes Only"
+          }
+        },
+        "r4": {
+          "type": "row",
+          "settings": {
+            "icon": "air",
+            "metric": "Thermal Dissipation",
+            "electro_val": "12,000 RPM Silent Turbo Fan",
+            "halogen_val": "Passive Glass Filament",
+            "generic_val": "Cheap Aluminum Fin"
+          }
+        },
+        "r5": {
+          "type": "row",
+          "settings": {
+            "icon": "verified_user",
+            "metric": "Direct Warranty",
+            "electro_val": "2-Year Full Replacement",
+            "halogen_val": "None / 30 Days",
+            "generic_val": "No Official Warranty"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5"
+      ],
+      "settings": {
+        "eyebrow": "DATA-BACKED SUPERIORITY",
+        "title": "SUPERIORITY <span style='color: #ffd900;'>ENGINEERED</span>",
+        "subtitle": "See how Electro NightEye LED outperforms stock factory halogens and generic budget LEDs across every critical safety metric."
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "t1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Unbelievable difference on unlit rural highways. The beam cutoff is razor sharp so nobody flashes their lights at me, yet the road ahead is as clear as daytime.",
+            "author": "Marcus Thorne",
+            "vehicle": "Ford F-150 (H11 Low Beam)"
+          }
+        },
+        "t2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Direct 5-minute plug and play installation on my Civic. Zero error codes on the dashboard and completely waterproof during torrential monsoon downpours.",
+            "author": "Rahul Mehta",
+            "vehicle": "Honda Civic (H7)"
+          }
+        },
+        "t3": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The 6500K cool white light penetrates through dense fog without yellowing or overheating. By far the highest quality LED upgrade I've ever installed.",
+            "author": "David Vance",
+            "vehicle": "Toyota 4Runner (H4 Dual Beam)"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3"
+      ],
+      "settings": {
+        "eyebrow": "VERIFIED HIGHWAY REVIEWS",
+        "title": "WHAT DRIVERS <span style='color: #ffd900;'>SAY</span>",
+        "subtitle": "Real feedback from over 25,000+ drivers who trust Electro NightEye for unmatched nighttime road safety."
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "f1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will these bulbs trigger a Canbus dashboard error light?",
+            "answer": "No. Electro NightEye LEDs feature integrated micro-decoders that replicate OEM halogen resistance, ensuring 99.9% error-free operation without ECU warning lights or flickering."
+          }
+        },
+        "f2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How difficult is the installation process?",
+            "answer": "It is completely plug-and-play. They are engineered to 1:1 OEM dimensions. Simply unplug your old factory bulb and twist in the Electro LED. Most drivers complete installation in under 10 minutes per headlight."
+          }
+        },
+        "f3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What does the 2-Year Warranty cover?",
+            "answer": "Our warranty provides full 100% no-hassle replacement coverage for any manufacturing defect, chip failure, fan malfunction, or water intrusion for a full 24 months from purchase date."
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3"
+      ],
+      "settings": {
+        "eyebrow": "SUPPORT & FITMENT HELP",
+        "title": "COMMON <span style='color: #ffd900;'>QUESTIONS</span>"
+      }
+    },
+    "cta_banner": {
+      "type": "cta-banner",
+      "settings": {
+        "title": "READY TO UPGRADE YOUR <span style='color: #ffd900;'>VISION?</span>",
+        "subtitle": "Join over 25,000+ satisfied motorists enjoying crystal-clear, daylight-level illumination on every midnight journey.",
+        "button_text": "ORDER NIGHTEYE LED NOW",
+        "button_url": "/products/electro-nighteye-led",
+        "secondary_button_text": "CHAT WITH A LIGHTING TECH",
+        "secondary_button_url": "#faq"
+      }
+    }
+  },
+  "order": [
+    "main_product",
+    "marquee",
+    "specs_section",
+    "comparison",
+    "testimonials",
+    "faq",
+    "cta_banner"
+  ]
+}

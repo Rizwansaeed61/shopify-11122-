@@ -1,0 +1,75 @@
+<section class="cta-banner-section" style="padding: 90px 0; background: radial-gradient(circle at 50% 50%, rgba(255, 217, 0, 0.15), transparent 70%), #12110c; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); text-align: center;">
+  <div class="page-width" style="max-width: 780px;">
+    
+    <div style="width: 56px; height: 56px; border-radius: 50%; background: var(--color-primary); color: #12110c; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; box-shadow: 0 0 30px rgba(255, 217, 0, 0.4);">
+      <span class="material-symbols-outlined font-black" style="font-size: 32px;">bolt</span>
+    </div>
+
+    <h2 style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; margin-bottom: 16px;">
+      {{ section.settings.title | default: 'READY TO UPGRADE YOUR <span style="color: var(--color-primary);">VISION?</span>' }}
+    </h2>
+
+    <p style="font-size: 16px; color: var(--color-text-muted); margin-bottom: 36px; line-height: 1.6;">
+      {{ section.settings.subtitle | default: 'Join over 25,000+ satisfied motorists enjoying crystal-clear, daylight-level illumination on every midnight journey.' }}
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 16px;">
+      <a href="{{ section.settings.button_url | default: '/products/electro-nighteye-led' }}" class="btn-primary" style="padding: 16px 36px; font-size: 15px;">
+        <span>{{ section.settings.button_text | default: 'ORDER NIGHTEYE LED NOW' }}</span>
+        <span class="material-symbols-outlined font-black">arrow_forward</span>
+      </a>
+
+      <a href="{{ section.settings.secondary_button_url | default: '#faq' }}" class="btn-secondary" style="padding: 16px 36px; font-size: 15px;">
+        <span>{{ section.settings.secondary_button_text | default: 'CHAT WITH A LIGHTING TECH' }}</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "CTA Banner",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "READY TO UPGRADE YOUR <span style='color: #ffd900;'>VISION?</span>"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Join over 25,000+ satisfied motorists enjoying crystal-clear, daylight-level illumination on every midnight journey."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Primary Button Text",
+      "default": "ORDER NIGHTEYE LED NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Primary Button URL"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "CHAT WITH A LIGHTING TECH"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_url",
+      "label": "Secondary Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Banner"
+    }
+  ]
+}
+{% endschema %}

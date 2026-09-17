@@ -1,0 +1,49 @@
+{
+  "general": {
+    "search": {
+      "search": "Search products...",
+      "submit": "Search",
+      "no_results": "No products found."
+    },
+    "accessibility": {
+      "close": "Close",
+      "menu": "Menu",
+      "skip_to_content": "Skip to content"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "ADD TO CART",
+      "sold_out": "SOLD OUT",
+      "unavailable": "UNAVAILABLE",
+      "buy_it_now": "BUY IT NOW",
+      "in_stock": "IN STOCK",
+      "quantity": "Quantity",
+      "fitment": "Bulb Fitment",
+      "universal_fit": "Universal Fit: Compatible with 95% of modern vehicles",
+      "check_fitment": "CHECK FITMENT",
+      "warranty": "1-YEAR WARRANTY",
+      "fast_shipping": "FAST DISPATCH",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price"
+    }
+  },
+  "sections": {
+    "cart": {
+      "title": "Your Cart",
+      "empty": "Your cart is currently empty",
+      "subtotal": "Subtotal",
+      "checkout": "Proceed to Checkout",
+      "continue_shopping": "Continue Shopping"
+    },
+    "comparison": {
+      "title": "Superiority Engineered",
+      "subtitle": "How Electro outshines standard halogen and generic budget LEDs"
+    },
+    "specs": {
+      "lumens": "15,000 Lumens",
+      "waterproof": "IP68 Waterproof",
+      "lifespan": "50,000+ Hrs"
+    }
+  }
+}
