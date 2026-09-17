@@ -1,0 +1,43 @@
+{% comment %}
+  Theme Block: Text / Paragraph
+{% endcomment %}
+<div class="theme-block theme-block--text" {{ block.shopify_attributes }}>
+  <div style="font-size: {{ block.settings.font_size }}px; line-height: 1.6; color: {{ block.settings.color }};">
+    {{ block.settings.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>Industrial-grade LED conversion kits engineered to eliminate blind spots and pierce through harsh rain, fog, and pitch-black highways.</p>"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text Color",
+      "default": "#a3a195"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text"
+    }
+  ]
+}
+{% endschema %}

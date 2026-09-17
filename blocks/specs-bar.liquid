@@ -1,0 +1,71 @@
+{% comment %}
+  Theme Block: Key Specs Bar
+{% endcomment %}
+<div class="theme-block theme-block--specs-bar" {{ block.shopify_attributes }}>
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0;">
+    <div style="background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; text-align: center;">
+      <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">wb_sunny</span>
+      <div style="font-size: 15px; font-weight: 900; color: #fff; margin-top: 4px;">{{ block.settings.spec_1_val | default: '15,000 LM' }}</div>
+      <div style="font-size: 10px; color: var(--color-text-muted); text-transform: uppercase;">{{ block.settings.spec_1_label | default: 'High Output' }}</div>
+    </div>
+    <div style="background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; text-align: center;">
+      <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">water_drop</span>
+      <div style="font-size: 15px; font-weight: 900; color: #fff; margin-top: 4px;">{{ block.settings.spec_2_val | default: 'IP68' }}</div>
+      <div style="font-size: 10px; color: var(--color-text-muted); text-transform: uppercase;">{{ block.settings.spec_2_label | default: 'Submersible' }}</div>
+    </div>
+    <div style="background: var(--color-surface-elevated); border: 1px solid var(--color-border); border-radius: 8px; padding: 12px; text-align: center;">
+      <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 20px;">schedule</span>
+      <div style="font-size: 15px; font-weight: 900; color: #fff; margin-top: 4px;">{{ block.settings.spec_3_val | default: '50,000+' }}</div>
+      <div style="font-size: 10px; color: var(--color-text-muted); text-transform: uppercase;">{{ block.settings.spec_3_label | default: 'Hours Life' }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Specs Highlight Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "spec_1_val",
+      "label": "Spec 1 Value",
+      "default": "15,000 LM"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_label",
+      "label": "Spec 1 Label",
+      "default": "High Output"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_val",
+      "label": "Spec 2 Value",
+      "default": "IP68"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_label",
+      "label": "Spec 2 Label",
+      "default": "Submersible"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_val",
+      "label": "Spec 3 Value",
+      "default": "50,000+"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_label",
+      "label": "Spec 3 Label",
+      "default": "Hours Life"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Specs Highlight Bar"
+    }
+  ]
+}
+{% endschema %}

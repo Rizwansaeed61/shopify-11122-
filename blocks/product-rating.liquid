@@ -1,0 +1,18 @@
+{% comment %}
+  Theme Block: Product Rating Badge
+{% endcomment %}
+<div class="theme-block theme-block--product-rating" {{ block.shopify_attributes }}>
+  {% render 'product-rating-badge' %}
+</div>
+
+{% schema %}
+{
+  "name": "Product Rating Badge",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Rating Badge"
+    }
+  ]
+}
+{% endschema %}

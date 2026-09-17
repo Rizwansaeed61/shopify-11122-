@@ -1,0 +1,24 @@
+{% comment %}
+  Theme Block: Custom Liquid
+{% endcomment %}
+<div class="theme-block theme-block--custom-liquid" {{ block.shopify_attributes }}>
+  {{ block.settings.custom_liquid }}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Liquid",
+  "settings": [
+    {
+      "type": "liquid",
+      "id": "custom_liquid",
+      "label": "Custom Liquid Code"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Liquid"
+    }
+  ]
+}
+{% endschema %}

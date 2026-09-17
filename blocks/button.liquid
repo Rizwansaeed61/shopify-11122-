@@ -1,0 +1,51 @@
+{% comment %}
+  Theme Block: Button
+{% endcomment %}
+<div class="theme-block theme-block--button" {{ block.shopify_attributes }}>
+  <a href="{{ block.settings.link | default: '/collections/all' }}" class="{% if block.settings.style == 'secondary' %}btn-secondary{% else %}btn-primary{% endif %}" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none;">
+    {%- if block.settings.icon != blank -%}
+      <span class="material-symbols-outlined" style="font-size: 18px;">{{ block.settings.icon }}</span>
+    {%- endif -%}
+    <span>{{ block.settings.label | default: 'Shop Now' }}</span>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Button Label",
+      "default": "Shop NightEye LED"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button Link"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Style",
+      "options": [
+        { "value": "primary", "label": "Primary (Neon Yellow)" },
+        { "value": "secondary", "label": "Secondary (Outline / Dark)" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Google Material Icon Name",
+      "default": "bolt"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Button"
+    }
+  ]
+}
+{% endschema %}

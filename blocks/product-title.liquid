@@ -1,0 +1,36 @@
+{% comment %}
+  Theme Block: Product Title
+{% endcomment %}
+<div class="theme-block theme-block--product-title" {{ block.shopify_attributes }}>
+  {%- if block.settings.eyebrow != blank -%}
+    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 217, 0, 0.1); border: 1px solid rgba(255, 217, 0, 0.25); padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: 12px;">
+      <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 16px;">bolt</span>
+      <span style="color: var(--color-primary); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+        {{ block.settings.eyebrow }}
+      </span>
+    </div>
+  {%- endif -%}
+
+  <h1 style="font-size: 32px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1.15; margin: 0 0 12px 0;">
+    {{ product.title | default: 'Electro NightEye LED Headlight Conversion Kit' }}
+  </h1>
+</div>
+
+{% schema %}
+{
+  "name": "Product Title",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "MILITARY SPEC OPTICS"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Title"
+    }
+  ]
+}
+{% endschema %}

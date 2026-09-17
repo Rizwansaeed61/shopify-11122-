@@ -241,3 +241,18 @@ function initReviewModal() {
     });
   });
 }
+
+// Shopify Theme Editor Iframe Safety Guard
+// Prevents accidental top-level redirects and ensures smooth editor loading
+if (window.Shopify && window.Shopify.designMode) {
+  document.addEventListener('click', function(e) {
+    const a = e.target.closest('a');
+    if (a) {
+      const href = a.getAttribute('href');
+      if (href && (href.startsWith('/checkout') || href.startsWith('http://') || href.startsWith('https://'))) {
+        e.preventDefault();
+      }
+    }
+  }, true);
+}
+

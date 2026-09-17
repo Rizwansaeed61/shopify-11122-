@@ -1,0 +1,48 @@
+{% comment %}
+  Theme Block: Collapsible Tab (Accordion)
+{% endcomment %}
+<div class="theme-block theme-block--collapsible-tab accordion-item" style="border: 1px solid var(--color-border); border-radius: 8px; margin-bottom: 8px; overflow: hidden; background: var(--color-surface-elevated);" {{ block.shopify_attributes }}>
+  <button type="button" class="accordion-header" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; background: none; border: none; color: #fff; cursor: pointer; text-align: left;">
+    <div style="display: flex; align-items: center; gap: 10px;">
+      {%- if block.settings.icon != blank -%}
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 18px;">{{ block.settings.icon }}</span>
+      {%- endif -%}
+      <span style="font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;">{{ block.settings.heading | default: 'Information' }}</span>
+    </div>
+    <span class="material-symbols-outlined" style="font-size: 20px; transition: transform 0.2s;">expand_more</span>
+  </button>
+  <div class="accordion-content" style="padding: 0 18px 16px; font-size: 13px; color: var(--color-text-muted); line-height: 1.6;">
+    {{ block.settings.content }}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collapsible Tab",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Tab Heading",
+      "default": "Technical Specifications"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Material Icon Name",
+      "default": "tune"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Tab Content",
+      "default": "<p>Operating Voltage: 9-32V DC. Lumen Output: 15,000 LM. Color Temp: 6500K Cool White. Cooling: 12,000 RPM Silent Turbo Fan.</p>"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible Tab"
+    }
+  ]
+}
+{% endschema %}

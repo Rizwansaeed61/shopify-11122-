@@ -31,8 +31,11 @@
 
 <title>{{ seo_title }}</title>
 <meta name="description" content="{{ seo_description }}">
-<link rel="canonical" href="{{ canonical_url_clean }}">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+{%- unless request.design_mode -%}
+  <link rel="canonical" href="{{ canonical_url_clean }}">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+{%- endunless -%}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:site_name" content="{{ shop.name }}">

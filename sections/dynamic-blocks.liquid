@@ -1,0 +1,28 @@
+{% comment %}
+  Section: Dynamic Theme Blocks Grid
+  Allows merchants to add and reorder any theme blocks (headings, text, buttons, specs, accordions)
+{% endcomment %}
+<section class="dynamic-blocks-section" style="padding: 40px 0;">
+  <div class="page-width">
+    {% content_for 'blocks' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dynamic Theme Blocks",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Theme Blocks"
+    }
+  ]
+}
+{% endschema %}

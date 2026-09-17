@@ -1,0 +1,37 @@
+{% comment %}
+  Theme Block: FAQ Item
+{% endcomment %}
+<div class="theme-block theme-block--faq-item accordion-item" style="border: 1px solid var(--color-border); border-radius: 10px; margin-bottom: 12px; background: var(--color-surface); overflow: hidden;" {{ block.shopify_attributes }}>
+  <button type="button" class="accordion-header" style="width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; background: none; border: none; color: #fff; cursor: pointer; text-align: left;">
+    <span style="font-size: 15px; font-weight: 800;">{{ block.settings.question | default: 'Will these headlights trigger a dashboard warning?' }}</span>
+    <span class="material-symbols-outlined" style="font-size: 20px; color: var(--color-primary); transition: transform 0.2s;">expand_more</span>
+  </button>
+  <div class="accordion-content" style="padding: 0 24px 20px; font-size: 14px; color: var(--color-text-muted); line-height: 1.6;">
+    <p style="margin: 0;">{{ block.settings.answer | default: 'No, integrated micro-decoders ensure 99.9% error-free Canbus operation on all modern vehicles.' }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ Question",
+  "settings": [
+    {
+      "type": "text",
+      "id": "question",
+      "label": "Question",
+      "default": "Will these headlights trigger a dashboard warning?"
+    },
+    {
+      "type": "textarea",
+      "id": "answer",
+      "label": "Answer",
+      "default": "No, integrated micro-decoders ensure 99.9% error-free Canbus operation on all modern vehicles."
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Question"
+    }
+  ]
+}
+{% endschema %}

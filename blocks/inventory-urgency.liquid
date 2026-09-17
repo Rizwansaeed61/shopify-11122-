@@ -1,0 +1,18 @@
+{% comment %}
+  Theme Block: Inventory Urgency Indicator
+{% endcomment %}
+<div class="theme-block theme-block--inventory-urgency" {{ block.shopify_attributes }}>
+  {% render 'inventory-urgency' %}
+</div>
+
+{% schema %}
+{
+  "name": "Inventory Urgency",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Inventory Urgency"
+    }
+  ]
+}
+{% endschema %}

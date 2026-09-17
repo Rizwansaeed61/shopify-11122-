@@ -1,0 +1,82 @@
+{% comment %}
+  Theme Block: Heading
+  Reusable across all sections that support Theme Blocks
+{% endcomment %}
+<div class="theme-block theme-block--heading" {{ block.shopify_attributes }}>
+  {%- case block.settings.tag -%}
+    {%- when 'h1' -%}
+      <h1 style="font-size: {{ block.settings.font_size }}px; font-weight: {{ block.settings.font_weight }}; color: {{ block.settings.color }}; margin: 0 0 12px 0; line-height: 1.2;">
+        {{ block.settings.text }}
+      </h1>
+    {%- when 'h3' -%}
+      <h3 style="font-size: {{ block.settings.font_size }}px; font-weight: {{ block.settings.font_weight }}; color: {{ block.settings.color }}; margin: 0 0 12px 0; line-height: 1.3;">
+        {{ block.settings.text }}
+      </h3>
+    {%- when 'h4' -%}
+      <h4 style="font-size: {{ block.settings.font_size }}px; font-weight: {{ block.settings.font_weight }}; color: {{ block.settings.color }}; margin: 0 0 12px 0; line-height: 1.3;">
+        {{ block.settings.text }}
+      </h4>
+    {%- else -%}
+      <h2 style="font-size: {{ block.settings.font_size }}px; font-weight: {{ block.settings.font_weight }}; color: {{ block.settings.color }}; margin: 0 0 12px 0; line-height: 1.25;">
+        {{ block.settings.text }}
+      </h2>
+  {%- endcase -%}
+</div>
+
+{% schema %}
+{
+  "name": "Heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Electro High-Output LED"
+    },
+    {
+      "type": "select",
+      "id": "tag",
+      "label": "Heading Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h4", "label": "H4" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 14,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Font Size",
+      "default": 28
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font Weight",
+      "options": [
+        { "value": "500", "label": "Medium" },
+        { "value": "700", "label": "Bold" },
+        { "value": "900", "label": "Black" }
+      ],
+      "default": "900"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Heading"
+    }
+  ]
+}
+{% endschema %}
