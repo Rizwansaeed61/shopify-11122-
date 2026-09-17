@@ -7,9 +7,10 @@
         <div style="position: absolute; inset: -20px; background: radial-gradient(circle, rgba(255,217,0,0.15), transparent 70%); filter: blur(30px); border-radius: 50%;"></div>
         <div class="neon-border" style="position: relative; z-index: 2; width: 100%; max-width: 440px; aspect-ratio: 1; border-radius: var(--radius-lg); overflow: hidden; background: #23200f; display: flex; align-items: center; justify-content: center;">
           {%- if section.settings.image != blank -%}
-            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+            {%- assign img_height = 800 | divided_by: section.settings.image.aspect_ratio | round -%}
+            <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ section.settings.title | escape }}" width="800" height="{{ img_height }}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
           {%- else -%}
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Mascot / Product Feature" style="width: 100%; height: 100%; object-fit: contain;">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAND8qMhd2pMpwyXo2dJR417sLYkrXtb3jG7hFgq91krJo7_DVFtACJaJoMZIj1Sdms2xakavJlHGCoI8U4KgKk7BBUTG3QCTBn7WL9Tlm3GOoRi4Kxml7I0Vxso9dESfsxELI-wTQrkMKb1Px77sRRrrwIg48vuTF9SxSP2y5cG6Aq6Kj4DSweRaKFdxn_yU6Q0FSmmWGp1GdUVpoIkZ88Rr9GIWKxuHrM6zXzunCN0RfGAEWH7pUPmcArPrbMgwgvT4DDXc-b2v5N" alt="Mascot / Product Feature" width="440" height="440" loading="lazy" style="width: 100%; height: 100%; object-fit: contain;">
           {%- endif -%}
         </div>
       </div>
