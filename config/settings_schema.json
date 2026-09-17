@@ -61,13 +61,13 @@
         "type": "font_picker",
         "id": "type_header_font",
         "label": "Heading Font",
-        "default": "inter_n9"
+        "default": "sans-serif"
       },
       {
         "type": "font_picker",
         "id": "type_body_font",
         "label": "Body Font",
-        "default": "inter_n4"
+        "default": "sans-serif"
       }
     ]
   },

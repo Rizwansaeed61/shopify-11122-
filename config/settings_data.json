@@ -10,6 +10,8 @@
     "enable_glow_effects": true,
     "cart_type": "drawer",
     "logo_width": 140,
+    "type_header_font": "sans-serif",
+    "type_body_font": "sans-serif",
     "social_facebook_link": "https://facebook.com",
     "social_instagram_link": "https://instagram.com",
     "social_youtube_link": "https://youtube.com",
@@ -26,7 +28,9 @@
       "color_border": "rgba(255, 255, 255, 0.12)",
       "enable_glow_effects": true,
       "cart_type": "drawer",
-      "logo_width": 140
+      "logo_width": 140,
+      "type_header_font": "sans-serif",
+      "type_body_font": "sans-serif"
     }
   }
 }
