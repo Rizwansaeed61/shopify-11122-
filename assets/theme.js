@@ -3,14 +3,17 @@
    Handles Drawer Cart, Vehicle Finder, Gallery Switcher, Accordions, Stepper
    ========================================================================== */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initAllComponents() {
   initCartDrawer();
   initVehicleCompatibility();
   initProductGallery();
   initAccordions();
   initQuantitySteppers();
   initVariantPickers();
-});
+}
+
+document.addEventListener('DOMContentLoaded', initAllComponents);
+document.addEventListener('shopify:section:load', initAllComponents);
 
 // Cart Drawer
 function initCartDrawer() {
