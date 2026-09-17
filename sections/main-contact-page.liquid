@@ -1,0 +1,122 @@
+<section class="contact-page" style="padding: 60px 0 100px; background: #12110c;">
+  <div class="page-width">
+    
+    <!-- Breadcrumb -->
+    <nav style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--color-text-muted); margin-bottom: 24px;">
+      <a href="{{ routes.root_url }}" style="color: inherit; text-decoration: none;">HOME</a>
+      <span>/</span>
+      <span style="color: var(--color-primary); font-weight: 700;">CONTACT LIGHTING SUPPORT</span>
+    </nav>
+
+    <!-- Header -->
+    <div style="text-align: center; max-width: 800px; margin: 0 auto 48px;">
+      <span style="font-size: 11px; font-weight: 900; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.25em; display: inline-block; margin-bottom: 12px; padding: 4px 12px; background: rgba(255, 217, 0, 0.1); border-radius: var(--radius-full);">
+        24/7 AUTOMOTIVE LIGHTING TECH SUPPORT
+      </span>
+      <h1 style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px;">
+        TALK TO A <span style="color: var(--color-primary);">LIGHTING SPECIALIST</span>
+      </h1>
+      <p style="font-size: 16px; color: var(--color-text-muted); line-height: 1.6;">
+        Need vehicle fitment confirmation, Canbus decoder assistance, or warranty replacement support? Our certified automotive lighting engineers are here to assist.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr; lg:grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; max-width: 1000px; margin: 0 auto;">
+      
+      <!-- Left: Contact Information Cards -->
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; gap: 16px; align-items: flex-start;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">support_agent</span>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 4px;">TECHNICAL FITMENT HELPLINE</h3>
+            <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 8px;">
+              Get chassis code and bulb size verification for any car, truck, or SUV.
+            </p>
+            <span style="font-size: 13px; font-weight: 800; color: var(--color-primary);">support@electrolighting.com</span>
+          </div>
+        </div>
+
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; gap: 16px; align-items: flex-start;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">verified_user</span>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 4px;">WARRANTY CLAIMS</h3>
+            <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 8px;">
+              24-Month direct unit replacement dispatch. Have your order ID ready.
+            </p>
+            <span style="font-size: 13px; font-weight: 800; color: var(--color-primary);">warranty@electrolighting.com</span>
+          </div>
+        </div>
+
+        <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 28px; display: flex; gap: 16px; align-items: flex-start;">
+          <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(255,217,0,0.1); border: 1px solid rgba(255,217,0,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="material-symbols-outlined" style="font-size: 24px; color: var(--color-primary);">schedule</span>
+          </div>
+          <div>
+            <h3 style="font-size: 16px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 4px;">FAST RESPONSE PROMISE</h3>
+            <p style="font-size: 13px; color: var(--color-text-muted); line-height: 1.5;">
+              Average technician ticket response time: <strong>under 2 hours</strong> on business days.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Interactive Contact Form -->
+      <div class="glass-panel" style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 36px; box-shadow: var(--shadow-glow);">
+        <h2 style="font-size: 20px; font-weight: 900; text-transform: uppercase; margin-bottom: 24px;">SEND A MESSAGE</h2>
+
+        {% form 'contact' %}
+          {%- if form.posted_successfully? -%}
+            <div style="background: rgba(40, 169, 86, 0.15); border: 1px solid #28a956; color: #28a956; padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 14px; font-weight: 700;">
+              Thank you! Your lighting inquiry has been received. A specialist will reply shortly.
+            </div>
+          {%- elsif form.errors -%}
+            <div style="background: rgba(255, 68, 68, 0.15); border: 1px solid #ff4444; color: #ff8888; padding: 16px; border-radius: 8px; margin-bottom: 20px; font-size: 13px;">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Your Name</label>
+              <input type="text" name="contact[name]" class="form-input" placeholder="e.g. John Miller" required style="width: 100%; padding: 12px 16px; border-radius: 8px; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; font-size: 14px;">
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Email Address</label>
+              <input type="email" name="contact[email]" class="form-input" placeholder="john@example.com" required style="width: 100%; padding: 12px 16px; border-radius: 8px; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; font-size: 14px;">
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Vehicle Details (Year / Make / Model)</label>
+              <input type="text" name="contact[vehicle]" class="form-input" placeholder="e.g. 2021 Toyota Camry LE" style="width: 100%; padding: 12px 16px; border-radius: 8px; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; font-size: 14px;">
+            </div>
+
+            <div>
+              <label style="display: block; font-size: 11px; font-weight: 800; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 6px;">Message / Inquiry</label>
+              <textarea name="contact[body]" rows="5" class="form-input" placeholder="Describe your vehicle headlight question or Canbus inquiry..." required style="width: 100%; padding: 12px 16px; border-radius: 8px; background: var(--color-surface-elevated); border: 1px solid var(--color-border); color: #fff; font-size: 14px; line-height: 1.5; resize: vertical;"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; padding: 14px; font-size: 14px; font-weight: 900; margin-top: 8px;">
+              SUBMIT INQUIRY
+            </button>
+          </div>
+        {% endform %}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": []
+}
+{% endschema %}

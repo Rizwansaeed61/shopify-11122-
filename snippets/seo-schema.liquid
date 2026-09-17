@@ -1,0 +1,159 @@
+{%- comment -%}
+  Automotive SEO Structured Data (JSON-LD)
+  Generates Google Rich Snippets for Product, AggregateRating, Offers, Breadcrumbs, and FAQs
+  Usage: {% render 'seo-schema' %}
+{%- endcomment -%}
+
+<!-- Organization / AutoPartsStore Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoPartsStore",
+  "name": {{ shop.name | json }},
+  "url": {{ shop.url | json }},
+  "description": "Industrial grade automotive LED conversion kits and Canbus error-free lighting systems.",
+  {% if settings.favicon != blank %}
+    "logo": "https:{{ settings.favicon | image_url: width: 500 }}",
+  {% endif %}
+  "priceRange": "$$",
+  "currenciesAccepted": {{ cart.currency.iso_code | json }},
+  "paymentAccepted": "Cash, Credit Card, Apple Pay, Shop Pay, PayPal"
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ shop.url | json }}
+    }
+    {%- if template.name == 'product' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Automotive LED Bulbs",
+        "item": "{{ shop.url }}/collections/all"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": {{ product.title | json }},
+        "item": "{{ shop.url }}{{ product.url }}"
+      }
+    {%- elsif template.name == 'collection' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ collection.title | default: 'Collections' | json }},
+        "item": "{{ shop.url }}{{ collection.url }}"
+      }
+    {%- elsif template.name == 'page' -%}
+      ,{
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ page.title | json }},
+        "item": "{{ shop.url }}{{ page.url }}"
+      }
+    {%- endif -%}
+  ]
+}
+</script>
+
+<!-- Product Schema (On Product Pages) -->
+{%- if template.name == 'product' -%}
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": {{ product.title | json }},
+    "url": "{{ shop.url }}{{ product.url }}",
+    {%- if product.featured_media -%}
+      "image": [
+        "https:{{ product.featured_media | image_url: width: 1200 }}"
+      ],
+    {%- endif -%}
+    "description": {{ product.description | strip_html | truncate: 500 | json }},
+    "sku": {{ current_variant.sku | default: 'ELE-NIGHTEYE-LED' | json }},
+    "mpn": {{ current_variant.sku | default: 'ELE-NIGHTEYE-LED' | json }},
+    "brand": {
+      "@type": "Brand",
+      "name": {{ product.vendor | default: 'Electro Automotive' | json }}
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "348",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type": "Offer",
+          "name": {{ variant.title | json }},
+          "price": "{{ variant.price | money_without_currency | strip }}",
+          "priceCurrency": {{ cart.currency.iso_code | json }},
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "{% if variant.available %}https://schema.org/InStock{% else %}https://schema.org/OutOfStock{% endif %}",
+          "url": "{{ shop.url }}{{ variant.url }}",
+          "seller": {
+            "@type": "Organization",
+            "name": {{ shop.name | json }}
+          }
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+{%- endif -%}
+
+<!-- FAQ Schema (For Google FAQ Rich Snippets on Product and FAQ Pages) -->
+{%- if template.name == 'product' or template.suffix == 'faq' -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will Electro NightEye LED bulbs trigger Canbus dashboard error warnings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Electro NightEye LED bulbs feature integrated Canbus micro-decoders that replicate OEM halogen electrical resistance, ensuring 99.9% error-free operation without ECU warning lights or flickering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How difficult is the installation process for these LED headlight bulbs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Installation is completely 100% plug-and-play. They are engineered to 1:1 OEM factory dimensions. Simply unplug your old factory bulb and twist in the Electro LED. Most drivers complete installation in under 10 minutes per headlight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the 2-Year Full Replacement Warranty cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our warranty provides full 100% no-hassle replacement coverage for any manufacturing defect, chip failure, fan malfunction, or water intrusion for a full 24 months from purchase date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these LED conversion kits waterproof for extreme rain and off-road driving?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, they are IP68 submersible rated with triple silicone sealed aircraft-grade 6063 aluminum housings, completely protected against standing water, mud, pressure washing, and sandstorms."
+      }
+    }
+  ]
+}
+</script>
+{%- endif -%}
