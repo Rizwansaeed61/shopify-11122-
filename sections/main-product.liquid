@@ -1,18 +1,23 @@
 <section class="product-main" style="padding: 60px 0 80px; background: #12110c;">
   <div class="page-width">
     
-    <div class="product-grid">
+    <div class="product-grid" style="display: grid; grid-template-columns: 1fr; lg:grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start;">
       
       <!-- Left Column: Media Gallery -->
-      <div class="product-gallery-column">
+      <div class="product-gallery-column" style="position: sticky; top: 100px;">
         {% render 'product-media-gallery', product: product %}
       </div>
 
       <!-- Right Column: Product Details & Blocks -->
-      <div class="product-info-column" style="display: flex; flex-direction: column; gap: 24px;">
+      <div class="product-info-column" style="display: flex; flex-direction: column; gap: 20px;">
         
         {%- for block in section.blocks -%}
           {%- case block.type -%}
+
+            {%- when 'rating_badge' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'product-rating-badge' %}
+              </div>
 
             {%- when 'title' -%}
               <div {{ block.shopify_attributes }}>
@@ -27,6 +32,11 @@
             {%- when 'price' -%}
               <div {{ block.shopify_attributes }}>
                 {% render 'price', product: product %}
+              </div>
+
+            {%- when 'inventory_urgency' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'inventory-urgency' %}
               </div>
 
             {%- when 'description' -%}
@@ -69,6 +79,11 @@
                 </div>
               </div>
 
+            {%- when 'trust_badges' -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'trust-badges' %}
+              </div>
+
             {%- when 'compatibility_finder' -%}
               <div id="compatibility" {{ block.shopify_attributes }} style="margin: 16px 0;">
                 {% render 'compatibility-selector' %}
@@ -88,6 +103,11 @@
                 </div>
               </div>
 
+            {%- when 'custom_liquid' -%}
+              <div {{ block.shopify_attributes }}>
+                {{ block.settings.custom_liquid }}
+              </div>
+
           {%- endcase -%}
         {%- endfor -%}
 
@@ -104,6 +124,11 @@
   "settings": [],
   "blocks": [
     {
+      "type": "rating_badge",
+      "name": "Rating Star Badge",
+      "limit": 1
+    },
+    {
       "type": "title",
       "name": "Title & Eyebrow",
       "limit": 1,
@@ -119,6 +144,11 @@
     {
       "type": "price",
       "name": "Price & Stock",
+      "limit": 1
+    },
+    {
+      "type": "inventory_urgency",
+      "name": "Inventory Stock Urgency",
       "limit": 1
     },
     {
@@ -139,6 +169,11 @@
     {
       "type": "specs_bar",
       "name": "Key Specs Bar",
+      "limit": 1
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust Guarantee Badges",
       "limit": 1
     },
     {
@@ -169,18 +204,32 @@
           "default": "<p><strong>Voltage:</strong> 9V - 32V DC<br><strong>Power:</strong> 110W per pair<br><strong>Color Temperature:</strong> 6500K Diamond White<br><strong>Operating Temp:</strong> -40°C to +85°C<br><strong>Cooling:</strong> 12,000 RPM Dual-Ball Turbo Fan</p>"
         }
       ]
+    },
+    {
+      "type": "custom_liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom Liquid Code"
+        }
+      ]
     }
   ],
   "presets": [
     {
       "name": "Main Product",
       "blocks": [
+        { "type": "rating_badge" },
         { "type": "title" },
         { "type": "price" },
+        { "type": "inventory_urgency" },
         { "type": "description" },
         { "type": "variant_picker" },
         { "type": "buy_buttons" },
         { "type": "specs_bar" },
+        { "type": "trust_badges" },
         { "type": "compatibility_finder" },
         {
           "type": "collapsible_tab",

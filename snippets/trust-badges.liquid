@@ -1,0 +1,39 @@
+{%- comment -%}
+  Renders automotive trust and guarantee badges
+  Usage:
+  {% render 'trust-badges' %}
+{%- endcomment -%}
+
+<div class="product-trust-badges" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; padding: 16px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); margin: 8px 0;">
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 22px;">verified_user</span>
+    <div>
+      <div style="font-size: 12px; font-weight: 800; color: #fff; text-transform: uppercase;">2-Yr Warranty</div>
+      <div style="font-size: 10px; color: var(--color-text-muted);">Direct Replacement</div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 22px;">local_shipping</span>
+    <div>
+      <div style="font-size: 12px; font-weight: 800; color: #fff; text-transform: uppercase;">Free Shipping</div>
+      <div style="font-size: 10px; color: var(--color-text-muted);">Orders Over $75</div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 22px;">water_drop</span>
+    <div>
+      <div style="font-size: 12px; font-weight: 800; color: #fff; text-transform: uppercase;">IP68 Proof</div>
+      <div style="font-size: 10px; color: var(--color-text-muted);">Submersible Tested</div>
+    </div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 22px;">sync</span>
+    <div>
+      <div style="font-size: 12px; font-weight: 800; color: #fff; text-transform: uppercase;">30-Day Return</div>
+      <div style="font-size: 10px; color: var(--color-text-muted);">Hassle-Free Money Back</div>
+    </div>
+  </div>
+</div>

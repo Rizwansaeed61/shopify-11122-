@@ -15,6 +15,8 @@ function initAllComponents() {
 
 document.addEventListener('DOMContentLoaded', initAllComponents);
 document.addEventListener('shopify:section:load', initAllComponents);
+document.addEventListener('shopify:section:select', initAllComponents);
+document.addEventListener('shopify:block:select', initAllComponents);
 
 // Cart Drawer with Dynamic Quick Buy Item Transfer
 function initCartDrawer() {

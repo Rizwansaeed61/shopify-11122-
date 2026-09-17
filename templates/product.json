@@ -12,6 +12,10 @@
     "main_product": {
       "type": "main-product",
       "blocks": {
+        "rating_block": {
+          "type": "rating_badge",
+          "settings": {}
+        },
         "title_block": {
           "type": "title",
           "settings": {
@@ -20,6 +24,10 @@
         },
         "price_block": {
           "type": "price",
+          "settings": {}
+        },
+        "urgency_block": {
+          "type": "inventory_urgency",
           "settings": {}
         },
         "desc_block": {
@@ -36,6 +44,10 @@
         },
         "specs_bar_block": {
           "type": "specs_bar",
+          "settings": {}
+        },
+        "trust_block": {
+          "type": "trust_badges",
           "settings": {}
         },
         "compat_block": {
@@ -68,12 +80,15 @@
         }
       },
       "block_order": [
+        "rating_block",
         "title_block",
         "price_block",
+        "urgency_block",
         "desc_block",
         "variant_block",
         "buy_block",
         "specs_bar_block",
+        "trust_block",
         "compat_block",
         "tab_1",
         "tab_2",

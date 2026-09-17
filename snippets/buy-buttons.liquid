@@ -5,35 +5,51 @@
 {%- endcomment -%}
 
 <div class="product-form" style="margin-top: 24px;">
-  {%- form 'product', product -%}
-    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 1 }}">
-    
+  {%- if product != blank -%}
+    {%- form 'product', product, id: 'product-form-installment' -%}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id | default: 1 }}">
+      
+      <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
+        {% render 'quantity-input' %}
+
+        <button type="submit" name="add" class="btn-primary" style="flex: 1; padding: 18px 24px; font-size: 15px; font-weight: 900; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <span class="material-symbols-outlined font-black">shopping_cart</span>
+          <span>{{ 'products.product.add_to_cart' | t }}</span>
+        </button>
+      </div>
+
+      <button type="submit" name="checkout" class="btn-secondary" style="width: 100%; padding: 16px 24px; font-size: 14px; font-weight: 800; margin-bottom: 20px;">
+        <span>{{ 'products.product.buy_it_now' | t }}</span>
+      </button>
+    {%- endform -%}
+  {%- else -%}
+    <!-- Preview / Editor Fallback -->
     <div style="display: flex; gap: 16px; align-items: center; margin-bottom: 16px;">
       {% render 'quantity-input' %}
 
-      <button type="button" data-open-cart class="btn-primary" style="flex: 1; padding: 18px 24px; font-size: 15px;">
+      <button type="button" data-open-cart class="btn-primary" style="flex: 1; padding: 18px 24px; font-size: 15px; font-weight: 900; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 8px;">
         <span class="material-symbols-outlined font-black">shopping_cart</span>
         <span>{{ 'products.product.add_to_cart' | t }}</span>
       </button>
     </div>
 
-    <button type="button" class="btn-secondary" style="width: 100%; padding: 16px 24px; font-size: 14px; margin-bottom: 20px;">
+    <button type="button" data-open-cart class="btn-secondary" style="width: 100%; padding: 16px 24px; font-size: 14px; font-weight: 800; margin-bottom: 20px;">
       <span>{{ 'products.product.buy_it_now' | t }}</span>
     </button>
-  {%- endform -%}
+  {%- endif -%}
 
   <div style="display: flex; flex-wrap: wrap; gap: 24px; padding-top: 16px; border-top: 1px solid var(--color-border); font-size: 13px; font-weight: 700; color: var(--color-text-muted);">
     <div style="display: flex; align-items: center; gap: 8px;">
       <span class="material-symbols-outlined" style="color: var(--color-primary);">verified_user</span>
-      <span>{{ 'products.product.warranty' | t }}</span>
+      <span>2-YEAR REPLACEMENT WARRANTY</span>
     </div>
     <div style="display: flex; align-items: center; gap: 8px;">
       <span class="material-symbols-outlined" style="color: var(--color-primary);">local_shipping</span>
-      <span>{{ 'products.product.fast_shipping' | t }}</span>
+      <span>FREE WORLDWIDE EXPRESS</span>
     </div>
     <div style="display: flex; align-items: center; gap: 8px;">
       <span class="material-symbols-outlined" style="color: var(--color-primary);">replay</span>
-      <span>30-DAY EASY RETURNS</span>
+      <span>30-DAY HASSLE-FREE RETURNS</span>
     </div>
   </div>
 </div>
