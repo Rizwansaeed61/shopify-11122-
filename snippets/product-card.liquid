@@ -8,7 +8,7 @@
   assign card_title = title | default: product.title | default: 'Electro NightEye LED H4'
   assign card_price = price | default: product.price | default: 8900
   assign card_lumens = lumens | default: '15,000 LM'
-  assign card_url = product.url | default: url | default: '/products/electro-nighteye-led'
+  assign card_url = product.url | default: url | default: '/collections/all'
   
   if image_url != blank
     assign card_img = image_url
